@@ -1,0 +1,1269 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бизнес-бакалавриат СКОЛКОВО · 2046</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300..800;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --night:#060B3F; --ink:#12182A; --paper:#F7F7F7; --white:#FFFFFF;
+  --orange:#DD7C30; --orange-hi:#F0913F; --violet:#3D2FC3; --mipt:#163AA3; --lav:#D0D0E4; --peach:#F3D2AA; --ice:#D6DEF3;
+  --mute-d:#A9ABD1; --mute-l:#5B5B66; --line-d:rgba(247,247,247,.14); --line-l:rgba(6,11,63,.14);
+  --gut:clamp(16px,4vw,56px);
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--paper);font-family:'Raleway','Helvetica Neue',Arial,sans-serif;font-feature-settings:"lnum" 1;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+html.fine, html.fine *{cursor:none !important}
+a{color:inherit}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;padding:0}
+.mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.02em}
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--gut)}
+.label{font-size:14px;letter-spacing:.01em}
+.dark{background:var(--night);color:var(--paper)}
+.ink{background:var(--ink);color:var(--paper)}
+.light{background:var(--paper);color:var(--night)}
+.dark .muted,.ink .muted{color:var(--mute-d)}
+.light .muted{color:var(--mute-l)}
+.sec{position:relative;padding:clamp(96px,12vw,180px) 0}
+.head{display:flex;flex-wrap:wrap;gap:24px 40px;align-items:flex-start;margin-bottom:clamp(48px,6vw,88px)}
+.head .label{flex:1 1 200px;padding-top:12px}
+.head h2{flex:999 1 560px;margin:0}
+.head .aside{flex:1 1 280px;margin:0;font-size:15px;line-height:1.55;padding-top:10px}
+.h-xxl{font-weight:500;font-size:clamp(44px,8.4vw,148px);letter-spacing:-.05em;line-height:.88}
+.h-xl{font-weight:500;font-size:clamp(44px,6.4vw,104px);letter-spacing:-.045em;line-height:.94}
+.h-l{font-weight:500;font-size:clamp(34px,4.2vw,64px);letter-spacing:-.035em;line-height:1}
+.h-m{font-weight:600;font-size:clamp(26px,2.6vw,38px);letter-spacing:-.025em;line-height:1.08}
+.lead{font-size:clamp(18px,1.5vw,21px);line-height:1.5}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:13px 24px;border-radius:100px;font-size:15px;font-weight:500;text-decoration:none;transition:transform .3s var(--ease),background .3s,color .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn-or{background:var(--orange);color:var(--night)}
+.btn-or:hover{background:var(--orange-hi)}
+.btn-line{border:1px solid currentColor}
+.btn-violet{background:var(--violet);color:#fff;border-radius:0;font-size:18px;font-weight:600;padding:16px 26px}
+.btn-violet:hover{background:#4c3fe0}
+.plus{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;font-size:12px;line-height:1;flex:none}
+.plus.f{background:var(--orange);color:var(--night)}
+.plus.o{border:1px solid currentColor}
+.hud{display:inline-flex;align-items:center;gap:8px;font-size:13px;white-space:nowrap}
+.blink{color:var(--orange);animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* reveal */
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+[data-reveal].in{opacity:1;transform:none}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.split .w>span{display:inline-block;transform:translateY(105%);transition:transform 1s var(--ease)}
+.split.in .w>span{transform:none}
+
+/* AI modes */
+[data-ai="limited"] .fx{opacity:.28 !important;filter:grayscale(.6)}
+[data-ai="none"] .fx{display:none !important}
+.nofx-msg{display:none}
+[data-ai="none"] .nofx-msg{display:block}
+
+/* cursor */
+#cur{position:fixed;left:0;top:0;width:140px;height:140px;margin:-70px 0 0 -70px;pointer-events:none;z-index:300;display:none;color:var(--paper)}
+html.fine #cur{display:block}
+#cur svg{position:absolute;inset:0;overflow:visible}
+#cur path{fill:none;stroke:var(--orange);stroke-width:1.5}
+#cur .dot{position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--orange);transition:opacity .25s}
+#cur .lab{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:0;transition:opacity .25s}
+#cur.has .lab{opacity:1}
+#cur.has .dot{opacity:0}
+
+/* intro */
+#intro{position:fixed;inset:0;z-index:250;background:var(--night);color:var(--paper);display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden;transition:transform 1.1s cubic-bezier(.76,0,.24,1)}
+#intro.out{transform:translateY(-100%)}
+#intro .top,#intro .bot{position:absolute;left:var(--gut);right:var(--gut);display:flex;justify-content:space-between;color:var(--mute-d)}
+#intro .top{top:28px}
+#intro .bot{bottom:28px}
+#introYear{font-weight:600;font-size:clamp(130px,31vw,520px);letter-spacing:-.065em;line-height:.8;font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"lnum" 1,"tnum" 1;transition:filter .15s}
+#introYear.tick{filter:blur(3px)}
+#introYear.slam{animation:slam .9s cubic-bezier(.2,1.4,.3,1) both;color:var(--paper)}
+#introYear .o{color:var(--orange)}
+@keyframes slam{0%{transform:scale(1.9);filter:blur(22px);opacity:0}55%{transform:scale(.96);filter:blur(0);opacity:1}100%{transform:scale(1)}}
+#intro.shake{animation:shake .5s linear .12s}
+@keyframes shake{10%{transform:translate(-6px,3px)}25%{transform:translate(7px,-4px)}40%{transform:translate(-5px,2px)}60%{transform:translate(4px,-2px)}80%{transform:translate(-2px,1px)}100%{transform:none}}
+#introBar{position:absolute;left:0;top:50%;height:3px;width:0;background:var(--orange);transform:translateY(-50%);mix-blend-mode:screen}
+#introBar.go{animation:bar .7s cubic-bezier(.7,0,.2,1) forwards}
+@keyframes bar{0%{width:0;left:0}50%{width:100%;left:0}100%{width:0;left:100%}}
+#introSkip{position:absolute;right:var(--gut);bottom:64px;color:var(--mute-d)}
+
+/* nav */
+#nav{position:fixed;left:0;right:0;top:0;z-index:120;transition:color .4s,background .4s,transform .5s var(--ease);color:var(--paper)}
+#nav.on-light{color:var(--night)}
+#nav.scrolled{background:rgba(6,11,63,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+#nav.scrolled.on-light{background:rgba(247,247,247,.8)}
+#nav.scrolled.on-light .btn-or{color:var(--night)}
+#nav .row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px var(--gut)}
+#nav .brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+#nav .brand b{font-weight:700;letter-spacing:.06em;font-size:16px}
+#nav .brand span{font-size:12px;opacity:.7}
+#nav .links{display:flex;gap:26px;font-size:14px}
+#nav .links a{text-decoration:none;opacity:.85}
+#nav .links a:hover{opacity:1}
+#nav .right{display:flex;align-items:center;gap:16px}
+#nav .yr{color:var(--orange)}
+#nav .ai-pill{border:1px solid currentColor;border-radius:100px;padding:6px 12px;opacity:.8}
+#nav .btn{min-height:40px;padding:9px 18px;font-size:14px;white-space:nowrap}
+@media (max-width:1080px){#nav .links{display:none}}
+@media (max-width:620px){#nav .ai-pill,#nav .yr{display:none}}
+
+/* hero */
+#hero{position:relative;height:100vh;min-height:760px;overflow:hidden;background:var(--night)}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:2}
+#heroCampus{position:absolute;left:0;right:0;bottom:0;height:52%;z-index:1;pointer-events:none}
+#heroCampus img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;opacity:.95}
+#heroCampus:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,var(--night) 0%,rgba(6,11,63,0) 32%,rgba(6,11,63,0) 52%,rgba(6,11,63,.92) 100%)}
+#heroYear{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);z-index:0;font-weight:700;font-size:44vw;letter-spacing:-.07em;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(247,247,247,.07);white-space:nowrap;pointer-events:none;font-feature-settings:"lnum" 1}
+.cross-v,.cross-h{position:absolute;background:rgba(247,247,247,.1);z-index:1;pointer-events:none}
+.cross-v{left:50%;top:0;bottom:0;width:1px}
+.cross-h{top:42%;left:0;right:0;height:1px}
+.hw{position:absolute;z-index:3;font-weight:500;font-size:clamp(40px,8.8vw,152px);letter-spacing:-.055em;line-height:.88;pointer-events:none;margin:0}
+.hw .w>span{transition-duration:1.2s}
+#hw1{left:var(--gut);top:clamp(96px,13vh,140px)}
+#hw2{right:var(--gut);top:35%;text-align:right}
+#hw3{left:var(--gut);bottom:clamp(90px,12vh,130px)}
+#hw3 sup{font-size:16px;letter-spacing:0;vertical-align:top;color:var(--orange);font-weight:600;margin-left:6px}
+#heroSide{position:absolute;left:var(--gut);top:calc(clamp(96px,13vh,140px) + clamp(40px,8.8vw,152px) + 40px);width:min(330px,calc(100vw - 2*var(--gut)));z-index:4;display:flex;flex-direction:column;gap:20px}
+#heroSide .btn{min-height:44px;padding:11px 20px;font-size:14px}
+#heroSide p{margin:0;font-size:17px;line-height:1.5}
+.hero-hud{position:absolute;z-index:4}
+#heroHint{left:var(--gut);bottom:28px;color:var(--mute-d)}
+#heroCount{right:var(--gut);bottom:28px;color:var(--mute-d);text-align:right}
+.hm{position:absolute;z-index:4;pointer-events:none;background:rgba(6,11,63,.62);padding:4px 10px 4px 4px;transition:opacity .6s}
+#hero .nofx-msg{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);z-index:5;text-align:center;color:var(--mute-d);width:min(440px,80vw)}
+@media (max-width:760px){#hw1{top:92px}#hw2{top:27%}#hw3{bottom:300px}#heroSide{top:auto;bottom:36px;right:var(--gut);width:auto}#heroSide p{font-size:15px}.hm{display:none}#heroHint,#heroCount{display:none}#nav .brand span{display:none}}
+.ready-hide{opacity:0;transition:opacity 1s .3s}
+body.ready .ready-hide{opacity:1}
+
+/* programmes */
+.progs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:clamp(24px,3vw,48px)}
+.prog{display:flex;flex-direction:column;gap:28px}
+.prog-media{position:relative;aspect-ratio:2/1.12;overflow:hidden;background:var(--night);transform-style:preserve-3d;transition:transform .5s var(--ease)}
+.prog-media img{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;transition:transform .8s var(--ease)}
+.prog:hover .prog-media img{transform:scale(1.04)}
+.prog-media .num{position:absolute;right:18px;bottom:6px;font-size:clamp(70px,9vw,140px);font-weight:600;letter-spacing:-.06em;line-height:.85;color:transparent;-webkit-text-stroke:1px rgba(247,247,247,.55)}
+.prog-media .hud{position:absolute;color:var(--paper);background:rgba(6,11,63,.72);padding:4px 10px 4px 4px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s var(--ease)}
+.prog:hover .prog-media .hud{opacity:1;transform:none}
+.prog-media .hud.always{opacity:1;transform:none}
+.prog-tag{font-size:17px;display:flex;gap:10px;align-items:center}
+.prog-tag:before{content:"";width:0;height:0;border-left:12px solid transparent;border-bottom:12px solid currentColor}
+.prog h3{margin:0;font-weight:600;font-size:clamp(30px,3vw,46px);letter-spacing:-.03em;line-height:1.05}
+.prog p{margin:0;font-size:17px;line-height:1.55}
+.slash{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.slash li{position:relative;padding-left:22px;font-size:16px;line-height:1.5}
+.slash li:before{content:"/";position:absolute;left:0;top:0;opacity:.55}
+.prog-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:8px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:clamp(72px,8vw,120px);border-top:1px solid var(--line-l)}
+.stat{padding:24px 24px 0 0;display:flex;flex-direction:column;gap:12px}
+.stat b{font-weight:500;font-size:clamp(64px,7vw,120px);letter-spacing:-.06em;line-height:.85;font-feature-settings:"lnum" 1,"tnum" 1}
+.stat b i{font-style:normal;color:var(--orange)}
+.stat>span{font-size:15px;line-height:1.4;max-width:220px}
+
+/* marquee */
+.marq{overflow:hidden;border-top:1px solid var(--line-l);border-bottom:1px solid var(--line-l);padding:26px 0;background:var(--paper);color:#8A8B99}
+.marq-track{display:flex;gap:44px;width:max-content;white-space:nowrap;font-weight:500;font-size:clamp(46px,7vw,112px);letter-spacing:-.045em;line-height:1;will-change:transform}
+.marq-track .p{color:var(--orange)}
+
+/* diagram */
+.diag{display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,80px);align-items:center}
+.diag-svg{flex:1 1 440px;min-width:0;max-width:640px;margin:0 auto}
+.diag-svg svg{width:100%;height:auto;overflow:visible}
+.seg{transition:transform .45s var(--ease),opacity .4s}
+.seg path{transition:fill .6s}
+.seg.dim{opacity:.35}
+.diag-side{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:28px}
+.toggle{display:inline-flex;border:1px solid var(--line-l);border-radius:100px;padding:4px;gap:4px;flex-wrap:wrap}
+.toggle button{min-height:44px;padding:10px 20px;border-radius:100px;font-size:15px;font-weight:600;transition:background .4s,color .4s}
+.toggle button.on[data-p="sk"]{background:var(--orange);color:var(--night)}
+.toggle button.on[data-p="mipt"]{background:var(--mipt);color:#fff}
+.seginfo{min-height:120px;border-top:1px solid var(--night);padding-top:16px}
+.seginfo .k{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.seginfo .v{font-size:clamp(24px,2.2vw,32px);font-weight:500;letter-spacing:-.025em;line-height:1.15;margin-top:8px}
+.pillars{display:flex;flex-direction:column;border-top:1px solid var(--line-l)}
+.pillar{border-bottom:1px solid var(--line-l);padding:18px 0;display:grid;grid-template-columns:32px 1fr;gap:4px 12px;transition:padding .4s var(--ease)}
+.pillar .n{font-size:13px;color:var(--mute-l);padding-top:4px}
+.pillar h4{margin:0;font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--orange)}
+.pillar p{grid-column:2;margin:0;font-size:15px;line-height:1.5;max-height:0;overflow:hidden;opacity:0;transition:max-height .5s var(--ease),opacity .4s}
+.pillar:hover p,.pillar.open p{max-height:120px;opacity:1}
+.pillar:hover,.pillar.open{padding:22px 0}
+
+/* advantages */
+.pit{position:relative;height:clamp(440px,48vw,580px);border:1px solid var(--line-d);overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.pit .grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line-d) 1px,transparent 1px),linear-gradient(90deg,var(--line-d) 1px,transparent 1px);background-size:80px 80px;opacity:.35;pointer-events:none}
+.pit .tip{position:absolute;left:16px;top:14px;color:var(--mute-d);pointer-events:none}
+.pit .again{position:absolute;right:12px;top:10px;z-index:3;border:1px solid var(--line-d);border-radius:100px;padding:8px 14px;font-size:13px;min-height:36px;color:var(--paper)}
+.bub{position:absolute;left:0;top:0;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font-size:14px;font-weight:600;line-height:1.15;letter-spacing:-.01em;will-change:transform;touch-action:none}
+.bub.g1{background:var(--orange);color:var(--night)}
+.bub.g2{background:var(--paper);color:var(--night)}
+.bub.g3{background:var(--violet);color:#fff}
+.bub.g4{background:transparent;border:1.5px solid var(--paper);color:var(--paper)}
+.bub.ping{box-shadow:0 0 0 6px rgba(221,124,48,.35)}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin:18px 0 0;font-size:13px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px;vertical-align:-1px}
+.adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));margin-top:clamp(56px,6vw,96px)}
+.adv{border-left:1px solid var(--line-d);padding:8px 28px 32px;display:flex;flex-direction:column;gap:22px;transition:background .5s}
+.adv.flash{background:rgba(221,124,48,.1)}
+.bars{display:flex;gap:4px;height:60px}
+.bars i{width:16px;height:100%;background:linear-gradient(90deg,rgba(221,124,48,0),var(--orange) 55%,rgba(221,124,48,0));filter:blur(1.6px)}
+.bars i:nth-child(2){transform:scaleX(-1)}
+.adv h3{margin:0;font-weight:600;font-size:clamp(24px,2.1vw,30px);letter-spacing:-.02em;line-height:1.1;min-height:2.2em}
+.adv .slash li{font-size:15px;color:var(--mute-d)}
+
+/* path */
+.path{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:0}
+.path-line{position:absolute;left:0;right:0;top:0;height:2px;background:var(--line-l)}
+.path-line i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--violet),var(--orange))}
+.step{position:relative;padding:36px 28px 0 0;display:flex;flex-direction:column;gap:14px}
+.step .dot{position:absolute;left:0;top:-8px;width:18px;height:18px;border-radius:50%;background:var(--paper);border:2px solid var(--night);transition:background .5s,border-color .5s,transform .5s var(--ease)}
+.step.lit .dot{background:var(--orange);border-color:var(--orange);transform:scale(1.15)}
+.step .when{font-size:13px;color:var(--mute-l)}
+.step h3{margin:0;font-weight:600;font-size:clamp(24px,2.2vw,32px);letter-spacing:-.025em;line-height:1.08}
+.step p{margin:0;font-size:15px;line-height:1.55;color:var(--mute-l)}
+.step .art{font-size:15px;font-weight:600}
+.grad{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:clamp(72px,8vw,120px)}
+.gcard{position:relative;background:var(--night);color:var(--paper);padding:32px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;overflow:hidden;transition:transform .5s var(--ease)}
+.gcard:hover{transform:translateY(-6px)}
+.gcard .gk{color:var(--orange)}
+.gcard h3{margin:0;font-weight:500;font-size:clamp(28px,2.6vw,40px);letter-spacing:-.035em;line-height:1}
+.gcard p{margin:0;font-size:15px;line-height:1.55;color:var(--mute-d)}
+.gcard:after{content:"";position:absolute;right:-60px;top:-60px;width:160px;height:160px;border-radius:50%;border:1px solid rgba(221,124,48,.5);transition:transform .8s var(--ease)}
+.gcard:hover:after{transform:scale(1.8)}
+
+/* eras */
+#eras{position:relative;height:340vh;background:var(--night)}
+#eras .stick{position:sticky;top:0;height:100vh;overflow:hidden}
+#erasCanvas{position:absolute;inset:0;width:100%;height:100%}
+#eras .ov{position:absolute;inset:0;pointer-events:none;display:flex;flex-direction:column;justify-content:space-between;padding:110px var(--gut) 40px}
+#eras .ov .t{max-width:520px;pointer-events:auto}
+#erasYear{font-weight:600;font-size:clamp(110px,22vw,360px);letter-spacing:-.065em;line-height:.78;font-feature-settings:"lnum" 1,"tnum" 1;color:var(--paper)}
+#erasYear.slam{animation:slam .8s cubic-bezier(.2,1.4,.3,1) both}
+#erasYear .o{color:var(--orange)}
+#erasStage{color:var(--orange)}
+#erasTitle{margin:12px 0 0}
+#erasDesc{margin:16px 0 0;max-width:440px}
+.fade-swap{transition:opacity .35s,transform .35s var(--ease)}
+.fade-swap.out{opacity:0;transform:translateY(10px)}
+#erasTicks{position:absolute;right:var(--gut);bottom:44px;display:flex;flex-direction:column;gap:14px;align-items:flex-end}
+#erasTicks span{display:flex;align-items:center;gap:10px;color:var(--mute-d);transition:color .4s}
+#erasTicks span:after{content:"";width:26px;height:1px;background:currentColor;transition:width .4s var(--ease)}
+#erasTicks span.on{color:var(--paper)}
+#erasTicks span.on:after{width:56px;background:var(--orange)}
+
+/* discussion */
+.disc{display:flex;flex-wrap:wrap;gap:clamp(32px,4vw,64px);align-items:stretch}
+.disc-ctrl{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:26px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{min-height:46px;padding:10px 18px;border-radius:100px;border:1px solid var(--night);font-size:15px;font-weight:500;transition:background .3s,color .3s,transform .3s var(--ease)}
+.chip:hover{transform:translateY(-2px)}
+.chip.on{background:var(--night);color:var(--paper)}
+.chip.on.or{background:var(--orange);border-color:var(--orange);color:var(--night)}
+.meter{height:3px;background:var(--line-l);position:relative}
+.meter i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--orange);transition:width .6s var(--ease)}
+.hyp{background:var(--night);color:var(--paper);padding:26px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .6s,transform .6s var(--ease)}
+.hyp.show{opacity:1;transform:none;pointer-events:auto}
+.disc-stage{flex:1 1 440px;min-width:0;position:relative;min-height:540px;border:1px solid var(--line-l);overflow:hidden}
+.disc-stage svg{position:absolute;inset:0;width:100%;height:100%}
+.core{position:absolute;left:50%;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:var(--night);transition:transform .6s cubic-bezier(.2,1.5,.3,1),background .5s}
+.ring-pulse{position:absolute;left:50%;top:50%;width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:50%;border:1.5px solid var(--orange);opacity:0}
+.ring-pulse.go{animation:ring 2.2s ease-out infinite}
+@keyframes ring{0%{transform:scale(.4);opacity:.9}100%{transform:scale(2.6);opacity:0}}
+.node{position:absolute;width:160px;margin-left:-80px;margin-top:-10px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;font-size:13px;font-weight:600;line-height:1.25;opacity:0;transform:scale(.4);transition:opacity .5s,transform .6s cubic-bezier(.2,1.5,.3,1)}
+.node.on{opacity:1;transform:none}
+.node i{width:18px;height:18px;border-radius:50%;background:var(--orange);display:block;animation:float 4s ease-in-out infinite}
+.node i.ring{background:transparent;border:1.5px solid var(--night)}
+.node i.ink{background:var(--night)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* students */
+.photos{display:flex;flex-wrap:wrap;gap:16px}
+.ph{position:relative;margin:0;overflow:hidden;background:#000;height:clamp(380px,46vw,640px)}
+.ph img{width:100%;height:118%;object-fit:cover;will-change:transform}
+.ph .hud{position:absolute;color:var(--paper);background:rgba(6,11,63,.75);padding:4px 10px 4px 4px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s var(--ease)}
+.ph:hover .hud{opacity:1;transform:none}
+.ph figcaption{position:absolute;left:16px;bottom:16px;color:var(--paper);background:rgba(6,11,63,.75);padding:6px 10px}
+
+/* campus */
+.campus{position:relative;overflow:hidden}
+.campus img{width:100%;transform:scale(1.06);transition:filter 1s,transform .3s linear}
+.campus .cm{position:absolute;color:var(--paper);background:rgba(6,11,63,.82);padding:4px 10px 4px 4px;opacity:0;transform:translateY(8px) scale(.9);transition:opacity .6s,transform .6s cubic-bezier(.2,1.4,.3,1)}
+.campus .cm.on{opacity:1;transform:none}
+.campus .now{position:absolute;right:16px;top:16px;background:rgba(6,11,63,.82);padding:6px 10px}
+.timebar{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-start;margin-top:40px}
+.tbtns{display:flex;gap:10px;flex-wrap:wrap}
+.tbtns button{min-height:46px;padding:10px 22px;border-radius:100px;border:1px solid rgba(247,247,247,.45);font-size:15px;font-weight:500;transition:background .3s,color .3s,border-color .3s}
+.tbtns button.on{background:var(--orange);border-color:var(--orange);color:var(--night)}
+
+/* ai */
+.aib{display:flex;gap:10px;flex-wrap:wrap}
+.aib button{min-height:50px;padding:12px 26px;border-radius:100px;border:1px solid var(--night);font-size:16px;font-weight:600;transition:background .3s,color .3s}
+.aib button.on{background:var(--night);color:var(--paper)}
+.aicols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;margin-top:48px}
+.aicol{border-top:1px solid var(--line-l);padding-top:16px;display:flex;flex-direction:column;gap:12px;transition:border-color .4s,opacity .4s}
+.aicol p{margin:0;font-size:22px;line-height:1.3;font-weight:500;letter-spacing:-.015em}
+.aicol.on{border-color:var(--orange)}
+.aicol.on .mono{color:#B85A16}
+
+/* heritage */
+.memory{border-top:1px solid var(--line-l);padding-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px;margin-top:64px}
+
+/* grant */
+#grant{overflow:hidden}
+.gwrap{display:flex;flex-direction:column;align-items:center;text-align:center;gap:40px}
+.gstage{position:relative;width:min(440px,84vw);aspect-ratio:1/1}
+#grantCanvas{position:absolute;inset:0;width:100%;height:100%}
+#me{position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 10px rgba(221,124,48,.2);transform:translate(0,60vh) scale(.6);transition:transform 1.8s cubic-bezier(.2,.9,.2,1)}
+#me.home{transform:none}
+#meLab{position:absolute;left:calc(50% + 22px);top:calc(50% - 34px);white-space:nowrap;background:rgba(6,11,63,.8);padding:3px 8px;opacity:0;transition:opacity .6s 1.6s}
+#me.home+#meLab{opacity:1}
+.gsteps{width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;text-align:left}
+.gsteps div{border-top:1px solid var(--line-d);padding-top:16px;display:flex;flex-direction:column;gap:10px}
+.gsteps div:last-child{border-color:var(--orange)}
+.gsteps p{margin:0;font-size:21px;line-height:1.3;font-weight:500}
+
+footer{border-top:1px solid var(--line-d);padding:56px 0 40px}
+.frow{display:flex;flex-wrap:wrap;gap:32px 48px;justify-content:space-between}
+.frow a{text-decoration:none}
+.disclaimer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line-d);color:var(--mute-d);font-size:13px;line-height:1.6}
+
+.more{display:none}
+/* ================= MOBILE ================= */
+@media (max-width:760px){
+  .sec{padding:72px 0}
+  .head{margin-bottom:36px;gap:12px}
+  .head .label{padding-top:0;flex-basis:100%}
+  .head .aside{display:none}
+  .h-xl{font-size:clamp(34px,10vw,44px)}
+  .h-l{font-size:28px;line-height:1.12}
+  /* programmes: short card + expandable details */
+  .progs{gap:56px}
+  .prog{gap:16px}
+  .prog-media{aspect-ratio:16/10}
+  .prog-media .hud:not(.always){display:none}
+  .prog-tag{font-size:14px}
+  .prog h3{font-size:28px}
+  .prog p{font-size:15px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .prog .slash{display:none}
+  .prog.open p{display:block}
+  .prog.open .slash{display:flex}
+  .prog .slash li{font-size:14px}
+  .more{display:inline-flex;align-items:center;justify-content:space-between;width:100%;min-height:46px;border-top:1px solid var(--line-l);border-bottom:1px solid var(--line-l);font-size:14px;font-weight:600}
+  .more:after{content:"+";font-size:20px;font-weight:400;transition:transform .3s}
+  .prog.open .more:after{transform:rotate(45deg)}
+  .prog-actions{margin-top:0}
+  .prog-actions .btn{flex:1 1 auto;justify-content:center}
+  .btn-violet{font-size:16px;padding:13px 20px}
+  .stats{grid-template-columns:1fr 1fr;margin-top:56px}
+  .stat{padding:18px 12px 0 0}
+  .stat b{font-size:52px}
+  .stat>span{font-size:13px}
+  .marq{padding:16px 0}
+  .marq-track{font-size:40px;gap:24px}
+  /* diagram */
+  .diag{gap:28px}
+  .diag-svg{flex-basis:100%;overflow:hidden;max-width:340px}
+  .toggle{display:flex;width:100%}
+  .toggle button{flex:1 1 0;font-size:13px;padding:10px 8px}
+  .seginfo{min-height:0}
+  .seginfo .v{font-size:22px}
+  /* advantages: accordion */
+  .pit{height:420px}
+  .pit .tip{display:none}
+  .legend{gap:8px 14px;font-size:11px}
+  .adv-grid{margin-top:40px;border-top:1px solid var(--line-d)}
+  .adv{border-left:0;border-bottom:1px solid var(--line-d);padding:0;gap:0}
+  .adv .bars{display:none}
+  .adv h3{min-height:0;font-size:20px;padding:18px 36px 18px 0;position:relative;cursor:pointer}
+  .adv h3:after{content:"+";position:absolute;right:4px;top:14px;font-size:24px;font-weight:400;color:var(--orange);transition:transform .3s}
+  .adv.open h3:after{transform:rotate(45deg)}
+  .adv .slash{display:none;padding-bottom:20px}
+  .adv.open .slash{display:flex}
+  /* path: vertical timeline */
+  .path{grid-template-columns:1fr;gap:28px}
+  .path-line{left:8px;right:auto;top:6px;bottom:6px;width:2px;height:auto}
+  .path-line i{width:100% !important;height:0;background:linear-gradient(180deg,var(--violet),var(--orange))}
+  .step{padding:0 0 0 40px;gap:8px}
+  .step .dot{top:2px}
+  .step h3{font-size:22px}
+  .step p{font-size:14px}
+  .grad{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:56px calc(-1*var(--gut)) 0;padding:0 var(--gut) 8px;scrollbar-width:none}
+  .grad::-webkit-scrollbar{display:none}
+  .gcard{flex:0 0 84%;scroll-snap-align:start;min-height:230px;padding:24px}
+  .gcard h3{font-size:26px}
+  .gcard p{font-size:14px}
+  /* eras */
+  #eras{height:250vh}
+  #eras .ov{padding:92px var(--gut) 28px}
+  #erasTicks{display:none}
+  #erasYear{font-size:30vw}
+  #erasTitle{font-size:30px}
+  #erasDesc{font-size:15px}
+  /* discussion */
+  .disc{gap:28px}
+  .disc-ctrl{gap:18px}
+  .chip{font-size:14px;min-height:44px;padding:8px 14px}
+  .hyp:not(.show){display:none}
+  .disc-stage{min-height:320px;flex-basis:100%}
+  .disc-stage>.mono{display:none}
+  .node{width:104px;margin-left:-52px;font-size:11px}
+  /* students */
+  .photos{gap:10px}
+  .ph{height:300px}
+  .ph .hud{display:none}
+  /* campus */
+  .campus img{height:300px;object-fit:cover;object-position:40% 50%;transform:none !important}
+  .campus .cm{display:none}
+  .timebar{margin-top:20px;gap:16px}
+  .tbtns button{min-height:44px;padding:9px 18px}
+  #tText{font-size:20px;flex-basis:100%}
+  /* ai */
+  .aib button{flex:1 1 0;padding:12px 10px;font-size:14px;min-height:46px}
+  .aicols{margin-top:28px;gap:16px}
+  .aicol p{font-size:17px}
+  /* heritage */
+  .memory{margin-top:36px;gap:12px}
+  .memory p{font-size:15px !important}
+  /* grant */
+  .gwrap{gap:28px}
+  .gstage{width:min(300px,80vw)}
+  #meLab{left:50%;top:calc(50% + 22px);transform:translateX(-50%)}
+  .gsteps{gap:14px}
+  .gsteps p{font-size:17px}
+  .gwrap .lead{font-size:16px}
+  footer .frow>div:nth-child(2){display:none !important}
+  footer{padding:40px 0 32px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  [data-reveal]{opacity:1;transform:none;transition:none}
+  .split .w>span{transform:none;transition:none}
+  .marq-track{transform:none !important}
+}
+</style>
+</head>
+<body class="lock" data-ai="free">
+
+<!-- cursor -->
+<div id="cur" aria-hidden="true"><svg viewBox="-70 -70 140 140"><path id="curPath" d=""/></svg><div class="dot"></div><div class="lab" id="curLab"></div></div>
+
+<!-- intro -->
+<div id="intro" aria-hidden="true">
+  <div class="top mono"><span>СКОЛКОВО · бизнес-бакалавриат</span><span id="introPct">000%</span></div>
+  <div id="introBar"></div>
+  <div id="introYear">2026</div>
+  <div class="bot mono"><span id="introCap">загрузка будущего</span><span>концепт · кейс-чемпионат</span></div>
+  <button id="introSkip" class="mono" type="button">пропустить →</button>
+</div>
+
+<!-- nav -->
+<header id="nav">
+  <div class="row">
+    <a class="brand" href="#hero"><b>СКОЛКОВО</b><span>бизнес-бакалавриат · 2046</span></a>
+    <nav class="links" aria-label="Разделы">
+      <a href="#programs">Программы</a><a href="#content">Содержание</a><a href="#advantages">Преимущества</a><a href="#path">Путь</a><a href="#campus">Кампус</a><a href="#grant">Гранты</a>
+    </nav>
+    <div class="right">
+      <span class="mono yr">2046 · кампус онлайн</span>
+      <button class="mono ai-pill" id="aiPill" type="button" data-cursor="ИИ">ИИ: свободно</button>
+      <a class="btn btn-or" href="https://www.skolkovo.ru/bachelor-programmes/" target="_blank" rel="noopener">Поступить ↗</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== HERO ===== -->
+<section id="hero" data-theme="dark">
+  <div id="heroYear" class="fx">2046</div>
+  <div id="heroCampus" class="fx"><img src="%%IMG_campus%%" alt="Кампус Московской школы управления СКОЛКОВО — Диск и парящий корпус"></div>
+  <div class="cross-v"></div><div class="cross-h"></div>
+  <canvas id="heroCanvas" class="fx" data-cursor="Соединяй" aria-label="Интерактивная сфера из частиц: оранжевые — опыт, кольца — студенты, белые — новое знание" role="img"></canvas>
+  <p class="nofx-msg mono">Режим «Без ИИ»: графика выключена. Остаётся мысль.</p>
+
+  <h1 class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Бизнес-бакалавриат СКОЛКОВО 2046: создавать то, чего ещё не существует</h1>
+  <p class="hw split" id="hw1" aria-hidden="true">Создавать</p>
+  <p class="hw split" id="hw2" aria-hidden="true">то, чего ещё</p>
+  <p class="hw" id="hw3" aria-hidden="true"><span class="split" id="hw3s">не существует</span><sup class="ready-hide">(вместе)</sup></p>
+
+  <div class="hm hud ready-hide fx" id="hm1" style="left:22%;top:24%"><span class="plus f">+</span>Инженер · 24 года в отрасли<span class="blink">в дискуссии</span></div>
+  <div class="hm hud ready-hide fx" id="hm2" style="left:58%;top:15%"><span class="plus o">+</span>Студентка 1 курса · данные и ИИ<span class="blink" style="animation-delay:.8s">в дискуссии</span></div>
+  <div class="hm hud ready-hide fx" id="hm3" style="left:55%;top:70%"><span class="plus f">+</span>Диск · идут 3 дискуссии</div>
+
+  <div id="heroSide" class="ready-hide">
+    <p>Бизнес-бакалавриат СКОЛКОВО. <span class="muted">Две программы высшего образования, где опыт предпринимателей и свежий взгляд студентов собираются вокруг сложных задач.</span></p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px">
+      <a class="btn btn-or" href="#programs">Две программы ↓</a>
+      <a class="btn btn-line" href="#eras">Как будем учиться в 2046 →</a>
+    </div>
+  </div>
+  <div class="hero-hud mono ready-hide" id="heroHint">наведи — частицы соединяются · кликни — родится знание · тяни — вращай</div>
+  <div class="hero-hud mono ready-hide" id="heroCount">новых знаний: <span id="kCount" style="color:var(--orange)">0</span><br>2026 ··· <span style="color:var(--paper)">2046</span></div>
+</section>
+
+<!-- ===== PROGRAMMES ===== -->
+<section id="programs" class="sec light" data-theme="light">
+  <div class="wrap">
+    <div class="head">
+      <div class="label muted" data-reveal>(Программы высшего образования)</div>
+      <h2 class="h-xl split">Две программы. Один кампус. Четыре года.</h2>
+      <p class="aside muted" data-reveal>Фундаментальная междисциплинарная подготовка для поколения бизнес-лидеров, способных решать неалгоритмизируемые задачи.</p>
+    </div>
+
+    <div class="progs">
+      <article class="prog" data-reveal data-cursor="Открыть">
+        <div class="prog-media" data-tilt>
+          <img src="%%IMG_prog-sk%%" alt="Иллюстрация кампуса СКОЛКОВО: изгиб Диска и лестница">
+          <div class="hud mono always" style="left:16px;top:16px"><span class="plus f">+</span>4 года · очно · кампус СКОЛКОВО</div>
+          <div class="hud mono" style="left:16px;top:52px"><span class="plus o">+</span>прикладные бизнес-проекты с 1 курса</div>
+          <div class="num">01</div>
+        </div>
+        <div class="prog-tag">«Управление и предпринимательство»</div>
+        <h3>Бизнес-бакалавриат СКОЛКОВО</h3>
+        <p>Современное бизнес-образование с углублённым изучением управленческих дисциплин. Экономический фундамент, науки о данных и искусственный интеллект для бизнеса, предпринимательский трек и прикладные бизнес-проекты с 1 курса.</p>
+        <button class="more" type="button">Для кого, формат и диплом</button>
+        <ul class="slash">
+          <li>Для абитуриентов, которые нацелены на карьеру в бизнесе и выбирают между программами по менеджменту и экономике</li>
+          <li>4 года, очно, кампус СКОЛКОВО</li>
+          <li>Диплом о высшем образовании СКОЛКОВО по профилю «Управление и предпринимательство»</li>
+        </ul>
+        <div class="prog-actions">
+          <a class="btn btn-violet" href="https://www.skolkovo.ru/bachelor-programmes/" target="_blank" rel="noopener">подробности ▸</a>
+          <a class="btn btn-line" href="#content" data-goto="sk">Содержание ↓</a>
+        </div>
+      </article>
+
+      <article class="prog" data-reveal data-cursor="Открыть" style="transition-delay:.12s">
+        <div class="prog-media" data-tilt>
+          <img src="%%IMG_prog-mipt%%" alt="Иллюстрация кампуса СКОЛКОВО: Диск и парящий корпус">
+          <div class="hud mono always" style="left:16px;top:16px"><span class="plus f">+</span>4 года · очно · 2 кампуса</div>
+          <div class="hud mono" style="left:16px;top:52px"><span class="plus o">+</span>два диплома: МФТИ и СКОЛКОВО</div>
+          <div class="num">02</div>
+        </div>
+        <div class="prog-tag">«Управление инновациями в бизнесе»</div>
+        <h3>Бизнес-бакалавриат СКОЛКОВО и МФТИ</h3>
+        <p>Программа двойного диплома от лидеров индустрии, объединившая экспертизу МФТИ в области высоких технологий и бизнес-образование от СКОЛКОВО. Междисциплинарная подготовка с фокусом на предпринимательство и бизнес.</p>
+        <button class="more" type="button">Для кого, формат и диплом</button>
+        <ul class="slash">
+          <li>Для абитуриентов, которые выбирают между сильными инженерно-технологическими вузами, но не видят себя исключительно техническими специалистами</li>
+          <li>4 года, очно, 2 кампуса (СКОЛКОВО и МФТИ)</li>
+          <li>Два диплома: диплом о высшем образовании МФТИ по профилю «Управление инновациями в бизнесе» и диплом дополнительного профессионального образования Школы управления СКОЛКОВО</li>
+        </ul>
+        <div class="prog-actions">
+          <a class="btn btn-violet" href="https://www.skolkovo.ru/bachelor-programmes/" target="_blank" rel="noopener">подробности ▸</a>
+          <a class="btn btn-line" href="#content" data-goto="mipt">Содержание ↓</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="stats">
+      <div class="stat" data-reveal><b data-count="2">0</b><span class="muted">программы бизнес-бакалавриата</span></div>
+      <div class="stat" data-reveal style="transition-delay:.08s"><b data-count="187">0</b><span class="muted">студентов в 2026/27 учебном году</span></div>
+      <div class="stat" data-reveal style="transition-delay:.16s"><b><i>&gt;</i><span data-count="30">0</span></b><span class="muted">регионов России</span></div>
+      <div class="stat" data-reveal style="transition-delay:.24s"><b><span data-count="90">0</span><i>%</i></b><span class="muted">студентов обучаются по грантам</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="marq-track" id="marq">
+  <span>Экономика</span><span class="p">+</span><span>Наука о данных и ИИ</span><span class="p">+</span><span>Физтех-компонента</span><span class="p">+</span><span>Бизнес-дисциплины</span><span class="p">+</span><span>Социогуманитарные дисциплины</span><span class="p">+</span><span>Предпринимательство</span><span class="p">+</span>
+  <span>Экономика</span><span class="p">+</span><span>Наука о данных и ИИ</span><span class="p">+</span><span>Физтех-компонента</span><span class="p">+</span><span>Бизнес-дисциплины</span><span class="p">+</span><span>Социогуманитарные дисциплины</span><span class="p">+</span><span>Предпринимательство</span><span class="p">+</span>
+</div></div>
+
+<!-- ===== CONTENT DIAGRAM ===== -->
+<section id="content" class="sec light" data-theme="light">
+  <div class="wrap">
+    <div class="head">
+      <div class="label muted" data-reveal>(Содержание программ)</div>
+      <h2 class="h-xl split">Из чего состоит обучение</h2>
+      <p class="aside muted" data-reveal>Общее ядро у обеих программ — бизнес и социогуманитарные дисциплины. Отличает их третья часть: экономика и ИИ в СКОЛКОВО, Физтех-компонента в МФТИ.</p>
+    </div>
+    <div class="diag">
+      <div class="diag-svg" data-reveal data-cursor="Наведи">
+        <svg id="diagSvg" viewBox="0 0 640 640" role="img" aria-label="Схема содержания программы">
+          <circle cx="320" cy="320" r="300" fill="none" stroke="#3E63B8" stroke-width="1.5" stroke-dasharray="5 7" opacity=".7">
+            <animateTransform attributeName="transform" type="rotate" from="0 320 320" to="360 320 320" dur="90s" repeatCount="indefinite"/>
+          </circle>
+          <g id="segs"></g>
+          <circle id="hubRing" cx="320" cy="320" r="104" fill="#F3D2AA"/>
+          <circle cx="320" cy="320" r="74" fill="#FFFFFF"/>
+          <g id="hubIcon" fill="#DD7C30">
+            <circle cx="296" cy="314" r="20"/><circle cx="330" cy="300" r="14"/><circle cx="318" cy="342" r="12"/>
+            <circle cx="350" cy="334" r="10" fill="none" stroke="#DD7C30" stroke-width="5" stroke-dasharray="4 3"/>
+          </g>
+        </svg>
+      </div>
+      <div class="diag-side">
+        <div class="toggle" role="group" aria-label="Программа">
+          <button type="button" data-p="sk" class="on">Бизнес-бакалавриат СКОЛКОВО</button>
+          <button type="button" data-p="mipt">СКОЛКОВО и МФТИ</button>
+        </div>
+        <div class="seginfo" id="segInfo" aria-live="polite"><div class="k" id="segK" style="color:var(--orange)">СКОЛКОВО</div><div class="v" id="segV">Экономика · Наука о данных и ИИ</div></div>
+        <div class="pillars">
+          <div class="pillar open" data-cursor="Раскрыть"><span class="n mono">01</span><h4>Междисциплинарность</h4><p>Как необходимое условие для учёта разных оптик и контекстов.</p></div>
+          <div class="pillar" data-cursor="Раскрыть"><span class="n mono">02</span><h4>Предпринимательство</h4><p>Проектные режимы и постановка предпринимательского мышления — в центре программы.</p></div>
+          <div class="pillar" data-cursor="Раскрыть"><span class="n mono">03</span><h4>Дизайн карьерного пути</h4><p>Карьерный трек с 1 года обучения, проектное портфолио, интеграция в сообщество СКОЛКОВО и индустрию, карьерная поддержка после выпуска.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ADVANTAGES ===== -->
+<section id="advantages" class="sec ink" data-theme="dark">
+  <div class="wrap">
+    <div class="head">
+      <div class="label muted" data-reveal>(Преимущества)</div>
+      <h2 class="h-xl split">Преимущества программ бакалавриата СКОЛКОВО</h2>
+      <p class="aside muted" data-reveal>Каждая частица — одно преимущество. Хватай, бросай, сталкивай. Клик подсветит, из какой оно группы.</p>
+    </div>
+    <div class="pit fx" id="pit" data-cursor="Бросай">
+      <div class="grid-bg"></div>
+      <div class="tip mono">физика включена · 19 преимуществ</div>
+      <button class="again mono" id="again" type="button" data-cursor="Ещё раз">встряхнуть ↺</button>
+    </div>
+    <div class="legend mono fx">
+      <span><i style="background:var(--orange)"></i>Камерный формат</span>
+      <span><i style="background:var(--paper)"></i>Сильная бизнес-среда</span>
+      <span><i style="background:var(--violet)"></i>Обучение через деятельность</span>
+      <span><i style="border:1.5px solid var(--paper)"></i>Технологичность</span>
+    </div>
+
+    <div class="adv-grid">
+      <div class="adv" id="adv1" data-reveal><div class="bars"><i></i><i></i><i></i></div><h3>Камерный формат и индивидуальный подход</h3>
+        <ul class="slash"><li>Отказ от массовости: многоступенчатая система отбора абитуриентов, небольшие классы и работа в малых группах, прямой контакт с преподавателями и командой программы</li><li>Адаптивность программ: ежегодная актуализация и доработка содержания</li><li>Сильные связи: формирование сообщества выпускников и партнёров</li></ul></div>
+      <div class="adv" id="adv2" data-reveal style="transition-delay:.08s"><div class="bars"><i></i><i></i><i></i></div><h3>Сильная бизнес-среда</h3>
+        <ul class="slash"><li>Фокус на реальных кейсах, знакомство с разными индустриями</li><li>Регулярные встречи с топ-менеджерами и предпринимателями, доступ к закрытым событиям</li><li>Интеграция в профессиональное бизнес-сообщество</li><li>Менторство при поддержке экспертов — лидеров индустрий</li><li>Устойчивая сеть компаний-партнёров</li></ul></div>
+      <div class="adv" id="adv3" data-reveal style="transition-delay:.16s"><div class="bars"><i></i><i></i><i></i></div><h3>Обучение через деятельность</h3>
+        <ul class="slash"><li>Проектная деятельность и стажировки с 1 курса</li><li>Работа с реальными бизнес-проектами, в том числе совместный трек со студентами флагманских программ СКОЛКОВО (EMBA, MBA)</li><li>Предпринимательский трек, возможность создать свой стартап</li><li>Диалог и дискуссия, а не лекционная трансляция знаний</li></ul></div>
+      <div class="adv" id="adv4" data-reveal style="transition-delay:.24s"><div class="bars"><i></i><i></i><i></i></div><h3>Технологичность</h3>
+        <ul class="slash"><li>Погружение и практика работы с передовыми технологиями в бизнесе</li><li>Современная инфраструктура образовательных пространств</li><li>Партнёрства с профильными вузами и технологическими компаниями: лаборатории, экспертиза, акселераторы</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PATH 4 YEARS ===== -->
+<section id="path" class="sec light" data-theme="light">
+  <div class="wrap">
+    <div class="head">
+      <div class="label muted" data-reveal>(Путь)</div>
+      <h2 class="h-xl split">Старт карьеры — в процессе обучения</h2>
+      <p class="aside muted" data-reveal>Максимальное погружение в бизнес-среду: встречи с лидерами бизнеса и доступ к экосистеме СКОЛКОВО с первого курса.</p>
+    </div>
+    <div class="path" id="pathEl">
+      <div class="path-line"><i id="pathFill"></i></div>
+      <div class="step"><span class="dot"></span><span class="when mono">1 курс</span><h3>Проекты с первого года</h3><p>Проектная деятельность, реальные кейсы, встречи с топ-менеджерами и предпринимателями.</p><span class="art">→ первые проекты в портфолио</span></div>
+      <div class="step"><span class="dot"></span><span class="when mono">лето после 1 курса</span><h3>Первая стажировка</h3><p>Летние стажировки уже после 1 курса: опыт в разных типах компаний.</p><span class="art">→ опыт в индустрии</span></div>
+      <div class="step"><span class="dot"></span><span class="when mono">учебный план</span><h3>Карьера и продукт</h3><p>Курсы «Управление карьерой» и «Создание продукта», предпринимательский трек и совместный трек с EMBA и MBA.</p><span class="art">→ свой продукт или стартап</span></div>
+      <div class="step"><span class="dot"></span><span class="when mono">4 курс</span><h3>Бизнес-проект как диплом</h3><p>Реализация бизнес-проекта на 4 курсе: в компании или в формате стартапа.</p><span class="art">→ выпускная работа с результатом</span></div>
+    </div>
+
+    <div class="grad">
+      <div class="gcard" data-reveal data-cursor="Выпускник"><span class="mono gk">выпускник · 01</span><h3>Имеет целостное видение</h3><p>Учитывает оптики разных дисциплин и контекстов, способен решать комплексные социально и системно значимые задачи в быстро меняющейся среде.</p></div>
+      <div class="gcard" data-reveal style="transition-delay:.1s" data-cursor="Выпускник"><span class="mono gk">выпускник · 02</span><h3>Создаёт новую ценность</h3><p>Формирует ценность — экономическую, социальную или культурную. Берёт на себя ответственность и самостоятельно принимает решения.</p></div>
+      <div class="gcard" data-reveal style="transition-delay:.2s" data-cursor="Выпускник"><span class="mono gk">выпускник · 03</span><h3>Обладает сильным социальным капиталом</h3><p>Включён в профессиональное и ценностное сообщество, расширяет влияние через портфолио с реальными результатами проектов.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ERAS 2046 (sticky) ===== -->
+<section id="eras" data-theme="dark">
+  <div class="stick">
+    <canvas id="erasCanvas" class="fx" data-cursor="Тяни" aria-hidden="true"></canvas>
+    <div class="ov">
+      <div class="t">
+        <div class="mono" id="erasStage">(СКОЛКОВО 1.0)</div>
+        <h2 class="h-l fade-swap" id="erasTitle">Учиться у лучших</h2>
+        <p class="lead muted fade-swap" id="erasDesc">Знание идёт от одного к многим. Сильные предприниматели и управленцы передают опыт.</p>
+      </div>
+      <div id="erasYear">2006</div>
+    </div>
+    <div id="erasTicks" class="mono"><span class="on">1.0 · школа</span><span>2.0 · сообщество</span><span>3.0 · создание</span></div>
+  </div>
+</section>
+
+<!-- ===== DISCUSSION ===== -->
+<section id="discussion" class="sec light" data-theme="light">
+  <div class="wrap">
+    <div class="head">
+      <div class="label muted" data-reveal>(2046 · как проходит занятие)</div>
+      <h2 class="h-xl split">Собери дискуссию</h2>
+      <p class="aside muted" data-reveal>Не лекция и не нетворкинг. Люди с разной экспертизой собираются вокруг одной реальной проблемы и доводят её до гипотезы, которую можно проверить.</p>
+    </div>
+    <div class="disc">
+      <div class="disc-ctrl">
+        <div style="border-top:1px solid var(--night);padding-top:16px;display:flex;flex-direction:column;gap:10px">
+          <span class="mono muted">проблема · от компании-партнёра</span>
+          <p class="h-m" style="margin:0">Завод теряет часы на внезапных остановках оборудования</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span class="mono muted">добавь взгляд · <b id="dN">0</b> / 5</span>
+          <div class="chips" id="chips"></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="meter"><i id="dMeter"></i></div>
+          <p style="margin:0;font-size:18px;line-height:1.4" id="dStage">Проблема без ответа. Одной оптики мало.</p>
+        </div>
+        <div class="hyp" id="hyp">
+          <span class="mono" style="color:var(--orange)">гипотеза · готова к эксперименту</span>
+          <p style="margin:0;font-size:20px;line-height:1.4">Часть поломок не видна в данных — опытные мастера узнают их по косвенным признакам. Дополнить модель их наблюдениями и проверить на одной линии.</p>
+          <button type="button" class="btn btn-line" id="dReset" style="align-self:flex-start">Собрать заново ↺</button>
+        </div>
+      </div>
+      <div class="disc-stage" id="dStageBox" aria-hidden="true">
+        <svg id="dLines"></svg>
+        <div class="ring-pulse" id="dRing"></div>
+        <div class="core" id="dCore"></div>
+        <span class="mono muted" style="position:absolute;left:16px;bottom:14px">ядро = проблема · оранжевые — опыт · кольца — студенты</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STUDENTS ===== -->
+<section id="students" class="sec dark" data-theme="dark">
+  <div class="wrap">
+    <div class="head">
+      <div class="label muted" data-reveal>(Студенты)</div>
+      <h2 class="h-xl split">Будущее уже учится здесь</h2>
+      <p class="aside muted" data-reveal>Ребята из более чем 30 регионов, которые выбрали не массовость, а сильную среду. Сегодняшние выпускники станут экспертами для дискуссий 2046 года.</p>
+    </div>
+    <div class="photos">
+      <figure class="ph" style="flex:7 1 480px;min-width:0" data-reveal data-cursor="Знакомься">
+        <img src="%%IMG_students-library%%" alt="Студенты бизнес-бакалавриата СКОЛКОВО и СКОЛКОВО × МФТИ в библиотеке кампуса" data-par>
+        <div class="hud mono" style="left:20%;top:14%"><span class="plus f">+</span>СКОЛКОВО и МФТИ · 2 курс</div>
+        <div class="hud mono" style="left:58%;top:36%"><span class="plus o">+</span>1 курс · <span class="blink">в дискуссии</span></div>
+        <div class="hud mono" style="left:36%;top:62%"><span class="plus f">+</span>предпринимательский трек</div>
+        <figcaption class="mono">библиотека кампуса</figcaption>
+      </figure>
+      <figure class="ph" style="flex:5 1 340px;min-width:0;transition-delay:.12s" data-reveal data-cursor="Знакомься">
+        <img src="%%IMG_graduates%%" alt="Выпускники бизнес-бакалавриата в мантиях на кампусе СКОЛКОВО" data-par style="object-position:50% 20%">
+        <div class="hud mono" style="left:10%;top:12%"><span class="plus f">+</span>выпуск · следующие эксперты</div>
+        <figcaption class="mono">выпускной · кампус СКОЛКОВО</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAMPUS ===== -->
+<section id="campus" class="sec dark" data-theme="dark" style="padding-top:clamp(40px,5vw,80px)">
+  <div class="wrap">
+    <div class="head">
+      <div class="label muted" data-reveal>(Кампус)</div>
+      <h2 class="h-xl split">Диск, где встречаются поколения</h2>
+      <p class="aside muted" data-reveal>Кампус нужен для того, что не переносится в онлайн: живого спора, совместной работы и тишины для глубокого мышления.</p>
+    </div>
+    <div class="campus" id="campusBox" data-reveal data-cursor="Смотри">
+      <img src="%%IMG_campus%%" alt="Кампус Московской школы управления СКОЛКОВО" id="campusImg">
+      <div class="cm hud mono" style="left:16%;top:70%"><span class="plus f">+</span>библиотека · тихая зона</div>
+      <div class="cm hud mono" style="left:50%;top:63%"><span class="plus f">+</span>Диск · 3 малые группы</div>
+      <div class="cm hud mono" style="left:66%;top:22%"><span class="plus f">+</span>резиденции · проектная ночь</div>
+      <div class="cm hud mono" style="left:30%;top:82%"><span class="plus f">+</span>конгресс-холл · защита трека</div>
+      <div class="cm hud mono" style="left:10%;top:28%"><span class="plus f">+</span>клуб предпринимателей</div>
+      <div class="now mono">сейчас на кампусе: <span id="tNow" style="color:var(--orange)">вечер</span></div>
+    </div>
+    <div class="timebar">
+      <div class="tbtns" role="group" aria-label="Время суток на кампусе">
+        <button type="button" data-t="morning">Утро</button><button type="button" data-t="day">День</button><button type="button" data-t="evening">Вечер</button>
+      </div>
+      <p class="h-m" id="tText" style="margin:0;flex:1 1 420px;font-weight:500">Дискуссии с предпринимателями и защиты результатов треков.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AI ===== -->
+<section id="ai" class="sec light" data-theme="light">
+  <div class="wrap">
+    <div class="head">
+      <div class="label muted" data-reveal>(ИИ)</div>
+      <h2 class="h-xl split">ИИ помогает искать. Думать учимся сами</h2>
+      <p class="aside muted" data-reveal>Переключатель управляет всем сайтом. Попробуй «Без ИИ» — и прокрути наверх.</p>
+    </div>
+    <div class="aib" id="aiBtns" role="group" aria-label="Режим ИИ">
+      <button type="button" data-ai="free" class="on">Свободно</button><button type="button" data-ai="limited">Ограниченно</button><button type="button" data-ai="none">Без ИИ</button>
+    </div>
+    <div class="aicols">
+      <div class="aicol on" data-col="free"><span class="mono">свободно</span><p>Исследования, поиск источников, анализ данных, прототипы</p></div>
+      <div class="aicol" data-col="limited"><span class="mono">ограниченно</span><p>Дискуссии и формирование собственной позиции</p></div>
+      <div class="aicol" data-col="none"><span class="mono">без ИИ</span><p>Экзамены, индивидуальные защиты, упражнения на рассуждение</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HERITAGE ===== -->
+<section class="sec light" data-theme="light" style="padding-top:0">
+  <div class="wrap">
+    <div class="head" style="margin-bottom:0">
+      <div class="label muted" data-reveal>(Миссия)</div>
+      <h2 class="h-l split" style="font-weight:500">«Готовить людей, способных развиваться и развивать страну и мир, помогать талантливым стать успешными»</h2>
+    </div>
+    <div class="memory" data-reveal>
+      <div class="mono muted">Андрей Щербенок<br>1974 — 2025</div>
+      <p style="margin:0;font-size:17px;line-height:1.6">Автор и основатель программ бизнес-бакалавриата СКОЛКОВО, директор программ в 2021–2025 годах.</p>
+      <p class="muted" style="margin:0;font-size:17px;line-height:1.6">Он был убеждён, что настоящее образование рождается через интеллектуальный вызов и диалог с талантливыми, неординарными студентами.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GRANT ===== -->
+<section id="grant" class="sec dark" data-theme="dark">
+  <div class="wrap gwrap">
+    <div class="gstage">
+      <canvas id="grantCanvas" class="fx" aria-hidden="true" data-cursor="Ты здесь"></canvas>
+      <div id="me"></div><div id="meLab" class="mono">+ это ты · <span class="blink">подключение</span></div>
+    </div>
+    <h2 class="h-xxl split" style="margin:0">Стань новой точкой</h2>
+    <p class="lead muted" style="margin:0;max-width:620px" data-reveal>Ежегодно Школа проводит конкурс грантов: учиться в СКОЛКОВО могут талантливые ребята из разных регионов — независимо от финансовых возможностей. Сегодня 90% студентов бакалавриата учатся по грантам.</p>
+    <div class="gsteps" data-reveal>
+      <div><span class="mono muted">01 · дистанционно</span><p>Анкета, достижения, мотивационное письмо</p></div>
+      <div><span class="mono muted">02 · очно</span><p>Тесты и эссе на кампусе</p></div>
+      <div><span class="mono" style="color:var(--orange)">03 · финал</span><p>Интервью и командный кейс перед жюри</p></div>
+    </div>
+    <p class="mono muted" style="margin:-16px 0 0">этапы — по опыту прошлых конкурсов; актуальные условия — на сайте Школы</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center" data-reveal>
+      <a class="btn btn-or" href="https://www.skolkovo.ru/bachelor-programmes/" target="_blank" rel="noopener">Подать заявку на грант ↗</a>
+      <a class="btn btn-line" href="https://www.skolkovo.ru/bachelor-programmes/" target="_blank" rel="noopener">Связаться с консультантом →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="dark" data-theme="dark">
+  <div class="wrap">
+    <div class="frow">
+      <div style="display:flex;flex-direction:column;gap:10px"><b style="letter-spacing:.06em;font-size:18px">СКОЛКОВО</b><span class="muted" style="font-size:14px">Московская школа управления · бизнес-бакалавриат</span></div>
+      <div style="display:flex;gap:28px;flex-wrap:wrap;font-size:14px"><a href="#programs">Программы</a><a href="#content">Содержание</a><a href="#advantages">Преимущества</a><a href="#path">Путь</a><a href="#campus">Кампус</a><a href="#grant">Гранты</a></div>
+      <div class="muted" style="font-size:14px">ВКонтакте · Telegram · RUTUBE · MAX</div>
+    </div>
+    <p class="disclaimer">Концепт-сайт «СКОЛКОВО 2046», подготовленный командой кейс-чемпионата. Не является официальным сайтом Московской школы управления СКОЛКОВО. Актуальная информация о программах и поступлении — на <a href="https://www.skolkovo.ru/bachelor-programmes/" target="_blank" rel="noopener">skolkovo.ru/bachelor-programmes</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var fine=window.matchMedia('(pointer:fine)').matches;
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var mob=window.matchMedia('(max-width:760px)').matches;
+var DPR=Math.min(window.devicePixelRatio||1,mob?1.5:2);
+var OR='#DD7C30', PAPER='#F7F7F7', NIGHT='#060B3F';
+var mouse={x:-9999,y:-9999,down:false};
+var AI='free';
+function clamp(v,a,b){return v<a?a:v>b?b:v}
+function lerp(a,b,t){return a+(b-a)*t}
+function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+function rng(seed){var a=seed>>>0;return function(){a=(a+0x6D2B79F5)>>>0;var t=a;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296}}
+if(fine) document.documentElement.classList.add('fine');
+
+window.addEventListener('pointermove',function(e){mouse.x=e.clientX;mouse.y=e.clientY},{passive:true});
+window.addEventListener('pointerdown',function(){mouse.down=true});
+window.addEventListener('pointerup',function(){mouse.down=false});
+window.addEventListener('mouseout',function(e){if(!e.relatedTarget){mouse.x=-9999;mouse.y=-9999}});
+
+/* ---------- visibility helper ---------- */
+function watch(el,cb,opts){var io=new IntersectionObserver(function(es){es.forEach(function(e){cb(e.isIntersecting,e)})},opts||{threshold:0});io.observe(el);return io}
+
+/* ---------- split headings ---------- */
+$$('.split').forEach(function(el){
+  var words=el.textContent.trim().split(/\s+/);el.textContent='';
+  words.forEach(function(w,i){var o=document.createElement('span');o.className='w';var s=document.createElement('span');s.textContent=w;s.style.transitionDelay=(i*0.06)+'s';o.appendChild(s);el.appendChild(o);if(i<words.length-1)el.appendChild(document.createTextNode(' '))});
+});
+var revIO=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');revIO.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+$$('[data-reveal], .split').forEach(function(el){ if(el.closest('#hero')) return; revIO.observe(el)});
+
+/* ---------- counters ---------- */
+$$('[data-count]').forEach(function(el){
+  var to=+el.getAttribute('data-count');
+  watch(el,function(v){ if(!v||el._done) return; el._done=true; var t0=performance.now(), d=1400;
+    (function f(t){var p=clamp((t-t0)/d,0,1);el.textContent=Math.round(ease(p)*to);if(p<1)requestAnimationFrame(f)})(t0);
+  },{threshold:.6});
+});
+
+/* ---------- cursor ---------- */
+var cur=$('#cur'), curPath=$('#curPath'), curLab=$('#curLab');
+var cx=innerWidth/2, cy=innerHeight/2, cr=10, crT=10, curText='';
+document.addEventListener('pointerover',function(e){
+  var z=e.target.closest&&e.target.closest('[data-cursor], a, button');
+  var t='';
+  if(z){ t=z.getAttribute('data-cursor')||''; }
+  curText=t; curLab.textContent=t; cur.classList.toggle('has',!!t);
+  crT = t ? 46 : (z ? 18 : 10);
+  var th=e.target.closest&&e.target.closest('[data-theme]');
+  cur.style.color = th && th.getAttribute('data-theme')==='light' ? NIGHT : PAPER;
+});
+function blobPath(r,t){
+  var n=10, pts=[];
+  for(var i=0;i<n;i++){var a=i/n*Math.PI*2;var k=r*(1+0.10*Math.sin(t*1.3+i*1.7)+0.07*Math.sin(t*2.3+i*0.9));pts.push([Math.cos(a)*k,Math.sin(a)*k])}
+  var d='M'+pts[0][0].toFixed(1)+','+pts[0][1].toFixed(1);
+  for(var j=0;j<n;j++){var p0=pts[(j-1+n)%n],p1=pts[j],p2=pts[(j+1)%n],p3=pts[(j+2)%n];
+    d+=' C'+(p1[0]+(p2[0]-p0[0])/6).toFixed(1)+','+(p1[1]+(p2[1]-p0[1])/6).toFixed(1)+' '+(p2[0]-(p3[0]-p1[0])/6).toFixed(1)+','+(p2[1]-(p3[1]-p1[1])/6).toFixed(1)+' '+p2[0].toFixed(1)+','+p2[1].toFixed(1)}
+  return d+'Z';
+}
+function cursorTick(t){
+  if(!fine) return;
+  cx=lerp(cx,mouse.x,.2); cy=lerp(cy,mouse.y,.2); cr=lerp(cr,mouse.down?crT*.8:crT,.15);
+  cur.style.transform='translate('+cx+'px,'+cy+'px)';
+  curPath.setAttribute('d',blobPath(cr,t/1000));
+}
+
+/* ---------- AI modes ---------- */
+var aiNames={free:'свободно',limited:'ограниченно',none:'без ИИ'};
+function setAI(m){AI=m;document.body.setAttribute('data-ai',m);$('#aiPill').textContent='ИИ: '+aiNames[m];
+  $$('#aiBtns button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-ai')===m)});
+  $$('.aicol').forEach(function(c){c.classList.toggle('on',c.getAttribute('data-col')===m)});}
+$$('#aiBtns button').forEach(function(b){b.addEventListener('click',function(){setAI(b.getAttribute('data-ai'))})});
+$('#aiPill').addEventListener('click',function(){setAI(AI==='free'?'limited':AI==='limited'?'none':'free')});
+
+/* ---------- canvas helper ---------- */
+function fitCanvas(c){var r=c.getBoundingClientRect();var w=Math.max(1,Math.round(r.width*DPR)),h=Math.max(1,Math.round(r.height*DPR));if(c.width!==w||c.height!==h){c.width=w;c.height=h;return true}return false}
+
+/* ---------- particle sphere ---------- */
+function Sphere(canvas,o){
+  this.c=canvas; this.g=canvas.getContext('2d'); this.o=o;
+  this.ay=0; this.ax=0.18; this.vay=0.0016; this.p=[]; this.sparks=[]; this.vis=true; this.scatter=0;
+  var R=rng(o.seed||11), n=o.n;
+  for(var i=0;i<n;i++){var y=1-(i/(n-1))*2,rad=Math.sqrt(Math.max(0,1-y*y)),th=i*2.399963;var j=o.jit||0.05;
+    var x=Math.cos(th)*rad+(R()-.5)*j, z=Math.sin(th)*rad+(R()-.5)*j, yy=y+(R()-.5)*j;
+    var k=R(); this.p.push({x:x,y:yy,z:z,k:k<.36?'ring':k<.66?'or':'w',s:.7+R()*.7,ox:0,oy:0,sc:.6+R()*1.4,born:0})}
+  var self=this;
+  if(o.interactive){
+    var drag=false,lx=0;
+    canvas.addEventListener('pointerdown',function(e){drag=true;lx=e.clientX;self.downAt=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId)});
+    canvas.addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-lx;lx=e.clientX;self.ay+=dx*.006;self.vay=dx*.006});
+    canvas.addEventListener('pointerup',function(e){drag=false;if(self.downAt&&Math.hypot(e.clientX-self.downAt[0],e.clientY-self.downAt[1])<6)self.burst(e)});
+  }
+  watch(canvas,function(v){self.vis=v});
+}
+Sphere.prototype.burst=function(e){
+  var r=this.c.getBoundingClientRect(),x=(e.clientX-r.left)*DPR,y=(e.clientY-r.top)*DPR,R=Math.random;
+  for(var i=0;i<26;i++){var a=R()*Math.PI*2,s=(2+R()*7)*DPR;this.sparks.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1,k:i%3===0?'or':'w'})}
+  for(var j=0;j<4;j++){var u=R()*2-1,t=R()*Math.PI*2,q=Math.sqrt(1-u*u);this.p.push({x:q*Math.cos(t),y:u,z:q*Math.sin(t),k:'w',s:1.3,ox:0,oy:0,sc:1,born:performance.now()})}
+  if(this.p.length>this.o.n+400)this.p.splice(this.o.n,4);
+  this.o.onBurst&&this.o.onBurst();
+};
+Sphere.prototype.draw=function(t){
+  if(!this.vis||AI==='none')return;
+  var c=this.c,g=this.g; fitCanvas(c); var W=c.width,H=c.height; g.clearRect(0,0,W,H);
+  var rect=c.getBoundingClientRect();
+  var CX=W*(this.o.cx||.5), CY=H*(this.o.cy||.5), RAD=Math.min(W,H)*(this.o.r||.32);
+  if(!this.o.interactive||!mouse.down) this.ay+=this.vay; this.vay=lerp(this.vay,0.0016,.02);
+  var mxl=(mouse.x-rect.left)*DPR, myl=(mouse.y-rect.top)*DPR;
+  if(this.o.interactive){ var tx=clamp((myl/H-.5)*.6,-.5,.5)+.12; this.ax=lerp(this.ax,tx,.03) }
+  var ca=Math.cos(this.ay),sa=Math.sin(this.ay),cb=Math.cos(this.ax),sb=Math.sin(this.ax);
+  var sc=this.scatter, MR=150*DPR, near=[];
+  var dimAlpha = AI==='limited'?.35:1;
+  for(var pass=0;pass<2;pass++){
+    for(var i=0;i<this.p.length;i++){var p=this.p[i];
+      var x1=p.x*ca+p.z*sa, z1=-p.x*sa+p.z*ca, y1=p.y*cb-z1*sb, z2=p.y*sb+z1*cb;
+      if((pass===0)!==(z2>0))continue;
+      var per=1/(1+z2*.42), depth=(1-z2)/2;
+      var spread=1+sc*(1.2+p.sc*1.6);
+      var sx=CX+x1*RAD*per*spread, sy=CY+y1*RAD*per*spread;
+      if(this.o.interactive||this.o.repel){
+        var dx=sx-mxl,dy=sy-myl,d=Math.sqrt(dx*dx+dy*dy)||1,tx2=0,ty2=0;
+        if(d<MR){var f=Math.pow(1-d/MR,2)*48*DPR;tx2=dx/d*f;ty2=dy/d*f}
+        p.ox=lerp(p.ox,tx2,.12);p.oy=lerp(p.oy,ty2,.12);sx+=p.ox;sy+=p.oy;
+        if(d<MR*1.05&&depth>.45&&p.k!=='w'&&near.length<60)near.push([sx,sy,p.k]);
+      }
+      var al=(.12+depth*.88)*(1-sc*.7)*dimAlpha, sz=(.6+depth*2.4)*p.s*DPR;
+      if(p.born){var age=(performance.now()-p.born)/1600; if(age<1){sz*=1+(1-age)*2.2;al=Math.min(1,al+.5)}}
+      g.globalAlpha=al;
+      if(p.k==='ring'){g.strokeStyle=PAPER;g.lineWidth=DPR*.9;g.beginPath();g.arc(sx,sy,sz*1.35,0,6.283);g.stroke()}
+      else{g.fillStyle=p.k==='or'?OR:PAPER;g.beginPath();g.arc(sx,sy,sz,0,6.283);g.fill()}
+    }
+  }
+  if(near.length>1){g.lineWidth=DPR;for(var a=0;a<near.length;a++)for(var b=a+1;b<near.length;b++){var A=near[a],B=near[b];if(A[2]===B[2])continue;var dd=Math.hypot(A[0]-B[0],A[1]-B[1]);if(dd<70*DPR){g.globalAlpha=(1-dd/(70*DPR))*.8*dimAlpha;g.strokeStyle=OR;g.beginPath();g.moveTo(A[0],A[1]);g.lineTo(B[0],B[1]);g.stroke()}}}
+  for(var s=this.sparks.length-1;s>=0;s--){var k=this.sparks[s];k.x+=k.vx;k.y+=k.vy;k.vx*=.93;k.vy*=.93;k.l-=.022;if(k.l<=0){this.sparks.splice(s,1);continue}
+    g.globalAlpha=k.l;g.fillStyle=k.k==='or'?OR:PAPER;g.beginPath();g.arc(k.x,k.y,2.2*DPR*k.l+DPR,0,6.283);g.fill()}
+  g.globalAlpha=1;
+};
+
+var kCount=0;
+var hero=new Sphere($('#heroCanvas'),{n:mob?560:(fine?1500:900),interactive:true,cx:.5,cy:.42,r:mob?.4:.31,seed:11,onBurst:function(){kCount++;$('#kCount').textContent=kCount}});
+var grant=new Sphere($('#grantCanvas'),{n:mob?260:520,repel:!mob,cx:.5,cy:.5,r:.42,seed:23});
+
+/* ---------- eras scene ---------- */
+var eras={c:$('#erasCanvas'),vis:false,p:[],stage:-1,prog:0,links:[]};
+eras.g=eras.c.getContext('2d');
+(function(){var R=rng(5),N=mob?300:(fine?720:420);
+  for(var i=0;i<N;i++){var k=R();eras.p.push({k:k<.38?'ring':k<.68?'or':'w',s:.7+R()*.8,ph:R()*6.28,ox:0,oy:0,a:[0,0],b:[0,0],c:[0,0],cl:Math.floor(R()*6),rr:R(),ra:R()})}
+  watch(eras.c,function(v){eras.vis=v});
+})();
+function erasTargets(W,H){
+  var N=eras.p.length, cols=30, rows=Math.ceil((N-1)/cols), R=rng(9);
+  var cl=[];for(var c=0;c<6;c++)cl.push([.42+R()*.5,.18+R()*.64]);
+  var m=Math.min(W,H);
+  for(var i=0;i<N;i++){var p=eras.p[i];
+    if(i===0){p.a=[W*.68,H*.2]}else{var ix=(i-1)%cols,iy=Math.floor((i-1)/cols);p.a=[W*(.42+ix/(cols-1)*.5),H*(.42+iy/(rows-1)*.46)]}
+    var cc=cl[p.cl],ang=p.ra*6.283,dist=Math.pow(p.rr,.6)*m*.14;
+    p.b=[W*cc[0]+Math.cos(ang)*dist,H*cc[1]+Math.sin(ang)*dist];
+    var gi=i*2.399963, r=Math.sqrt(i/N)*m*.42; p.c=[gi,r];
+  }
+  eras.links=[];var L=Math.min(N,260);
+  for(var a=1;a<L;a++){var best=-1,bd=1e9;for(var b=1;b<L;b++){if(a===b)continue;var dx=eras.p[a].b[0]-eras.p[b].b[0],dy=eras.p[a].b[1]-eras.p[b].b[1],d=dx*dx+dy*dy;if(d<bd){bd=d;best=b}}if(best>0)eras.links.push([a,best])}
+  eras.W=W;eras.H=H;
+}
+var eraData=[
+  {y:'2006',st:'(СКОЛКОВО 1.0 · бизнес-школа)',t:'Учиться у лучших',d:'Знание идёт от одного к многим. Сильные предприниматели и управленцы передают свой опыт.'},
+  {y:'2022',st:'(СКОЛКОВО 2.0 · сообщество)',t:'Быть среди лучших',d:'Появляется бакалавриат. Поколения учатся на одном кампусе, предприниматели и студенты развиваются в одной среде.'},
+  {y:'2046',st:'(СКОЛКОВО 3.0 · создание)',t:'Создавать с лучшими',d:'Сообщество собирается вокруг сложной проблемы: опыт и молодые таланты вместе создают то, чего ещё не существует.'}
+];
+function setEra(s){
+  if(s===eras.stage)return; eras.stage=s; var d=eraData[s];
+  var y=$('#erasYear'); y.classList.remove('slam'); void y.offsetWidth;
+  y.innerHTML=s===2?'20<span class="o">46</span>':d.y; y.classList.add('slam');
+  $('#erasStage').textContent=d.st;
+  ['#erasTitle','#erasDesc'].forEach(function(id,i){var el=$(id);el.classList.add('out');setTimeout(function(){el.textContent=i?d.d:d.t;el.classList.remove('out')},300)});
+  $$('#erasTicks span').forEach(function(t,i){t.classList.toggle('on',i===s)});
+}
+function erasDraw(t){
+  var sec=$('#eras'),r=sec.getBoundingClientRect(),total=r.height-innerHeight;
+  var prog=clamp(-r.top/total,0,1); eras.prog=prog;
+  var tt=prog*2.2-.1; tt=clamp(tt,0,2); setEra(tt<.66?0:tt<1.5?1:2);
+  if(!eras.vis||AI==='none')return;
+  var c=eras.c,g=eras.g; if(fitCanvas(c)||!eras.W)erasTargets(c.width,c.height);
+  var W=c.width,H=c.height; g.clearRect(0,0,W,H);
+  var seg=tt<1?0:1, e=ease(clamp(tt-seg,0,1)), time=t/1000, m=Math.min(W,H);
+  var rect=c.getBoundingClientRect(), mxl=(mouse.x-rect.left)*DPR, myl=(mouse.y-rect.top)*DPR, MR=130*DPR;
+  var CX=W*.66, CY=H*.5, rot=time*.06, dim=AI==='limited'?.35:1;
+  var linkW=Math.max(0,1-Math.abs(tt-1)*1.6);
+  var pos=new Array(eras.p.length);
+  for(var i=0;i<eras.p.length;i++){var p=eras.p[i];
+    var cpos=[CX+Math.cos(p.c[0]+rot)*p.c[1],CY+Math.sin(p.c[0]+rot)*p.c[1]*.92];
+    if(i===0)cpos=[CX,CY];
+    var A=seg===0?p.a:p.b, B=seg===0?p.b:cpos;
+    var x=lerp(A[0],B[0],e)+Math.sin(time*1.2+p.ph)*2*DPR, y=lerp(A[1],B[1],e)+Math.cos(time*1.1+p.ph)*2*DPR;
+    var dx=x-mxl,dy=y-myl,d=Math.sqrt(dx*dx+dy*dy)||1,tx=0,ty=0;
+    if(d<MR){var f=Math.pow(1-d/MR,2)*40*DPR;tx=dx/d*f;ty=dy/d*f}
+    p.ox=lerp(p.ox,tx,.1);p.oy=lerp(p.oy,ty,.1); x+=p.ox;y+=p.oy; pos[i]=[x,y];
+  }
+  if(linkW>0){g.strokeStyle=PAPER;g.lineWidth=DPR*.7;g.globalAlpha=.18*linkW*dim;g.beginPath();
+    eras.links.forEach(function(l){g.moveTo(pos[l[0]][0],pos[l[0]][1]);g.lineTo(pos[l[1]][0],pos[l[1]][1])});g.stroke()}
+  var w0=tt<1?1-e:0;
+  if(w0>0){g.strokeStyle=OR;g.lineWidth=DPR*.8;for(var q=0;q<14;q++){var idx=1+((q*53+Math.floor(time*2))%(eras.p.length-1));g.globalAlpha=.25*w0*dim*(.5+.5*Math.sin(time*3+q));g.beginPath();g.moveTo(pos[0][0],pos[0][1]);g.lineTo(pos[idx][0],pos[idx][1]);g.stroke()}}
+  var w2=tt>1?e:0;
+  if(w2>.05){g.strokeStyle=OR;g.lineWidth=DPR*.8;for(var q2=0;q2<18;q2++){var id2=1+((q2*97+Math.floor(time*1.5))%(eras.p.length-1));if(eras.p[id2].k==='w')continue;g.globalAlpha=.3*w2*dim;g.beginPath();g.moveTo(pos[id2][0],pos[id2][1]);g.lineTo(CX,CY);g.stroke()}}
+  for(var j=0;j<eras.p.length;j++){var P=eras.p[j],X=pos[j][0],Y=pos[j][1];
+    var colorW=tt<.5;
+    var sz=(j===0?(tt<1?9:tt>1.5?12+3*Math.sin(time*3):6):1.6*P.s+(tt>1?e*1.2:0))*DPR;
+    g.globalAlpha=(j===0?1:.55+.4*P.s/1.5)*dim;
+    var kind=j===0?(tt<1?'or':'w'):(colorW?'w':P.k);
+    if(kind==='ring'){g.strokeStyle=PAPER;g.lineWidth=DPR*.9;g.beginPath();g.arc(X,Y,sz*1.4,0,6.283);g.stroke()}
+    else{g.fillStyle=kind==='or'?OR:PAPER;g.beginPath();g.arc(X,Y,sz,0,6.283);g.fill()}
+  }
+  if(tt>1.5){g.globalAlpha=.5*dim;g.strokeStyle=OR;g.lineWidth=1.5*DPR;var rr=((time*.6)%1);g.beginPath();g.arc(CX,CY,(20+rr*m*.2),0,6.283);g.globalAlpha=(1-rr)*.6*dim;g.stroke()}
+  g.globalAlpha=1;
+}
+
+/* ---------- intro ---------- */
+var intro=$('#intro'), iy=$('#introYear'), introDone=false;
+function finishIntro(){
+  if(introDone)return; introDone=true;
+  intro.classList.add('out'); document.body.classList.remove('lock'); document.body.classList.add('ready');
+  ['#hw1','#hw2','#hw3s'].forEach(function(s,i){setTimeout(function(){$(s).classList.add('in')},250+i*160)});
+  setTimeout(function(){intro.style.display='none'},1200);
+}
+function runIntro(){
+  if(reduce){iy.textContent='2046';setTimeout(finishIntro,300);return}
+  var y=2026, end=2046, step=0;
+  function next(){
+    step++; y++;
+    var pct=Math.round((y-2026)/20*100); $('#introPct').textContent=(pct<10?'00':pct<100?'0':'')+pct+'%';
+    if(y<end){ iy.textContent=y; iy.classList.add('tick'); setTimeout(function(){iy.classList.remove('tick')},40);
+      var p=(y-2026)/20, delay=40+Math.pow(p,3)*180; setTimeout(next,delay); return }
+    iy.innerHTML='20<span class="o">46</span>'; iy.classList.remove('tick'); iy.classList.add('slam');
+    intro.classList.add('shake'); $('#introBar').classList.add('go'); $('#introCap').textContent='СКОЛКОВО 2046 · университет коллективного интеллекта';
+    setTimeout(finishIntro,1500);
+  }
+  setTimeout(next,500);
+}
+$('#introSkip').addEventListener('click',finishIntro);
+window.addEventListener('keydown',function(e){if(e.key==='Escape')finishIntro()});
+window.addEventListener('wheel',function(){if(!introDone&&iy.classList.contains('slam'))finishIntro()},{passive:true});
+
+/* ---------- hero parallax + scatter ---------- */
+function heroTick(){
+  var h=$('#hero'),r=h.getBoundingClientRect(),p=clamp(-r.top/(r.height*.85),0,1);
+  hero.scatter=p;
+  var yr=$('#heroYear'); var mx=(mouse.x/innerWidth-.5)||0,my=(mouse.y/innerHeight-.5)||0; if(mouse.x<0){mx=0;my=0}
+  yr.style.transform='translate(calc(-50% + '+(mx*-30)+'px), calc(-50% + '+(my*-20+p*120)+'px)) scale('+(1+p*.3)+')';
+  $('#heroCampus').style.transform='translateY('+(p*80)+'px)';
+  ['#hw1','#hw2','#hw3'].forEach(function(s,i){$(s).style.transform='translateY('+(-p*(60+i*40))+'px)'});
+}
+
+/* ---------- nav theme ---------- */
+var secs=$$('[data-theme]');
+function navTick(){var y=40,th='dark';for(var i=0;i<secs.length;i++){var r=secs[i].getBoundingClientRect();if(r.top<=y&&r.bottom>y){th=secs[i].getAttribute('data-theme');break}}var nv=$('#nav');nv.classList.toggle('on-light',th==='light');nv.classList.toggle('scrolled',scrollY>innerHeight*.6)}
+
+/* ---------- marquee (scroll-velocity) ---------- */
+var mq=$('#marq'),mqX=0,lastY=scrollY,vel=0;
+function marqTick(){var dy=scrollY-lastY;lastY=scrollY;vel=lerp(vel,dy,.1);mqX-=mob?0.5:0.6+Math.abs(vel)*.5;var w=mq.scrollWidth/2;if(-mqX>w)mqX+=w;mq.style.transform='translateX('+mqX+'px)'+(mob?'':' skewX('+clamp(-vel*.25,-12,12)+'deg)')}
+
+/* ---------- tilt on programme media ---------- */
+$$('[data-tilt]').forEach(function(m){
+  m.addEventListener('pointermove',function(e){var r=m.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    m.style.transform='perspective(900px) rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg)';$('img',m).style.transform='scale(1.06) translate('+(-x*14)+'px,'+(-y*10)+'px)'});
+  m.addEventListener('pointerleave',function(){m.style.transform='';$('img',m).style.transform=''});
+});
+
+/* ---------- diagram ---------- */
+var svgNS='http://www.w3.org/2000/svg';
+var segDefs={
+  special:{sk:{fill:'#DD7C30',k:'СКОЛКОВО',v:'Экономика · Наука о данных и ИИ',kc:'#DD7C30'},mipt:{fill:'#163AA3',k:'МФТИ',v:'Фундаментальная Физтех-компонента',kc:'#163AA3'}},
+  biz:{fill:'#D0D0E4',k:'Бизнес-дисциплины',v:'Управленческие дисциплины и бизнес-практика — база обеих программ',kc:'#5B5B66'},
+  soc:{fill:'#0B0D45',k:'Социогуманитарные дисциплины',v:'Фундамент для понимания людей, общества и контекстов',kc:'#0B0D45'}
+};
+var D={prog:'sk',cur:{special:[0,125],soc:[125,235],biz:[235,360]},target:null,anim:0};
+var lay={sk:{special:[0,125],soc:[125,235],biz:[235,360]},mipt:{special:[235,360],soc:[125,235],biz:[0,125]}};
+var segEls={};
+function arc(a0,a1,r0,r1){var g=2.2;a0+=g/2;a1-=g/2;function P(a,r){var t=(a-90)*Math.PI/180;return[320+Math.cos(t)*r,320+Math.sin(t)*r]}
+  var la=(a1-a0)>180?1:0,p1=P(a0,r1),p2=P(a1,r1),p3=P(a1,r0),p4=P(a0,r0);
+  return 'M'+p1+' A'+r1+','+r1+' 0 '+la+' 1 '+p2+' L'+p3+' A'+r0+','+r0+' 0 '+la+' 0 '+p4+'Z'}
+['biz','soc','special'].forEach(function(k){var g=document.createElementNS(svgNS,'g');g.setAttribute('class','seg');var p=document.createElementNS(svgNS,'path');g.appendChild(p);
+  var tx=document.createElementNS(svgNS,'text');tx.setAttribute('text-anchor','middle');tx.setAttribute('font-family','Raleway, sans-serif');tx.setAttribute('font-weight','700');tx.setAttribute('font-size','17');tx.setAttribute('letter-spacing','.5');g.appendChild(tx);
+  $('#segs').appendChild(g);segEls[k]={g:g,p:p,t:tx};
+  g.addEventListener('pointerenter',function(){showSeg(k);Object.keys(segEls).forEach(function(o){segEls[o].g.classList.toggle('dim',o!==k)});var m=(D.cur[k][0]+D.cur[k][1])/2,t=(m-90)*Math.PI/180;g.style.transform='translate('+Math.cos(t)*12+'px,'+Math.sin(t)*12+'px)'});
+  g.addEventListener('pointerleave',function(){Object.keys(segEls).forEach(function(o){segEls[o].g.classList.remove('dim')});g.style.transform='';showSeg('special')});
+});
+var segLabels={biz:['БИЗНЕС-','ДИСЦИПЛИНЫ'],soc:['СОЦИОГУМАНИТАРНЫЕ','ДИСЦИПЛИНЫ'],special:{sk:['ЭКОНОМИКА','ДАННЫЕ И ИИ'],mipt:['ФИЗТЕХ-','КОМПОНЕНТА']}};
+function renderDiag(){
+  Object.keys(segEls).forEach(function(k){var a=D.cur[k],big=k==='special',r1=big?262:228;var el=segEls[k];
+    el.p.setAttribute('d',arc(a[0],a[1],112,r1));
+    el.p.setAttribute('fill',k==='special'?segDefs.special[D.prog].fill:segDefs[k].fill);
+    var m=(a[0]+a[1])/2,t=(m-90)*Math.PI/180,rr=big?190:172,x=320+Math.cos(t)*rr,y=320+Math.sin(t)*rr;
+    var lines=k==='special'?segLabels.special[D.prog]:segLabels[k];
+    while(el.t.firstChild)el.t.removeChild(el.t.firstChild);
+    lines.forEach(function(L,i){var ts=document.createElementNS(svgNS,'tspan');ts.setAttribute('x',x);ts.setAttribute('y',y+(i-.5)*20+6);ts.textContent=L;el.t.appendChild(ts)});
+    el.t.setAttribute('fill',k==='biz'?'#0B0D45':'#FFFFFF'); el.t.setAttribute('font-size',k==='soc'?'14':'16');
+  });
+  $('#hubRing').setAttribute('fill',D.prog==='sk'?'#F3D2AA':'#D6DEF3');
+  $('#hubIcon').setAttribute('fill',D.prog==='sk'?'#DD7C30':'#163AA3');
+  $$('#hubIcon circle[stroke]').forEach(function(c){c.setAttribute('stroke',D.prog==='sk'?'#DD7C30':'#163AA3')});
+}
+function showSeg(k){var d=k==='special'?segDefs.special[D.prog]:segDefs[k];var K=$('#segK'),V=$('#segV');K.textContent=d.k;K.style.color=d.kc;V.textContent=d.v}
+function setProg(pr){ if(pr===D.prog)return; var from=JSON.parse(JSON.stringify(D.cur)),to=lay[pr],t0=performance.now();D.prog=pr;
+  $$('.toggle button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-p')===pr)});showSeg('special');
+  (function f(t){var p=ease(clamp((t-t0)/900,0,1));Object.keys(to).forEach(function(k){
+    var a0=from[k][0],a1=from[k][1],b0=to[k][0],b1=to[k][1];
+    if(k==='special'||k==='biz'){ if(b0>a0&&b0-a0>180){a0+=360;a1+=360} if(a0>b0&&a0-b0>180){b0+=360;b1+=360} }
+    D.cur[k]=[lerp(a0,b0,p),lerp(a1,b1,p)];});renderDiag();if(p<1)requestAnimationFrame(f)})(t0);
+}
+$$('.toggle button').forEach(function(b){b.addEventListener('click',function(){setProg(b.getAttribute('data-p'))})});
+$$('[data-goto]').forEach(function(a){a.addEventListener('click',function(){setProg(a.getAttribute('data-goto'))})});
+$$('.pillar').forEach(function(p){p.addEventListener('click',function(){$$('.pillar').forEach(function(o){o.classList.toggle('open',o===p)})})});
+renderDiag();
+
+/* ---------- physics bubbles ---------- */
+var pit=$('#pit'), bubbles=[], drag=null, pitW=0, pitH=0, pitOn=false, pitVis=false;
+var advItems=[
+  ['Малые группы',1],['Многоступенчатый отбор',1],['Прямой контакт с преподавателями',1],['Ежегодное обновление программ',1],['Сообщество выпускников',1],
+  ['Реальные кейсы',2],['Встречи с топ-менеджерами',2],['Закрытые события',2],['Менторство',2],['Сеть компаний-партнёров',2],
+  ['Проекты с 1 курса',3],['Стажировки с 1 курса',3],['Трек с EMBA и MBA',3],['Свой стартап',3],['Диалог, а не лекции',3],
+  ['Передовые технологии',4],['Современные пространства',4],['Лаборатории',4],['Акселераторы',4]];
+function pitSize(){var r=pit.getBoundingClientRect();pitW=r.width;pitH=r.height}
+function spawnBubbles(){
+  bubbles.forEach(function(b){b.el.remove()});bubbles=[];pitSize();
+  var scale=pitW<640?.68:pitW<1000?.84:1, R=rng((Date.now()%9999)+1);
+  advItems.forEach(function(it,i){var el=document.createElement('div');el.className='bub g'+it[1];el.textContent=it[0];
+    var r=clamp(44+it[0].length*1.55,54,92)*scale; el.style.width=el.style.height=(r*2)+'px'; el.style.fontSize=(r<62?12.5:14)*Math.max(scale,.85)+'px';
+    pit.appendChild(el);
+    var b={el:el,r:r,x:r+R()*(pitW-2*r),y:-r-i*70-R()*60,vx:(R()-.5)*3,vy:0,a:0,g:it[1]};bubbles.push(b);
+    el.addEventListener('pointerdown',function(e){e.preventDefault();drag={b:b,dx:e.clientX,dy:e.clientY,lx:e.clientX,ly:e.clientY,vx:0,vy:0,moved:0};el.setPointerCapture(e.pointerId);el.style.zIndex=5});
+    el.addEventListener('pointermove',function(e){if(!drag||drag.b!==b)return;var r2=pit.getBoundingClientRect();var nx=e.clientX-r2.left,ny=e.clientY-r2.top;drag.vx=nx-b.x;drag.vy=ny-b.y;drag.moved+=Math.abs(e.clientX-drag.lx)+Math.abs(e.clientY-drag.ly);drag.lx=e.clientX;drag.ly=e.clientY;b.x=nx;b.y=ny});
+    el.addEventListener('pointerup',function(){if(!drag||drag.b!==b)return;b.vx=clamp(drag.vx,-40,40);b.vy=clamp(drag.vy,-40,40);if(drag.moved<6)pingGroup(b);drag=null;el.style.zIndex=''});
+  });
+}
+function pingGroup(b){var card=$('#adv'+b.g);card.classList.add('flash');if(mob)card.classList.add('open');b.el.classList.add('ping');b.vy=-14;setTimeout(function(){card.classList.remove('flash');b.el.classList.remove('ping')},1400)}
+function pitTick(){
+  if(!pitOn||!pitVis||AI==='none')return;
+  var G=.55, rect=pit.getBoundingClientRect(), mx=mouse.x-rect.left, my=mouse.y-rect.top;
+  for(var i=0;i<bubbles.length;i++){var b=bubbles[i];if(drag&&drag.b===b)continue;
+    b.vy+=G; b.vx*=.996; b.vy*=.996; b.x+=b.vx; b.y+=b.vy;
+    if(!drag&&!mob){var dx=b.x-mx,dy=b.y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<b.r+50&&d>0){var f=(1-d/(b.r+50))*1.4;b.vx+=dx/d*f;b.vy+=dy/d*f}}
+    if(b.y>pitH-b.r){b.y=pitH-b.r;b.vy*=-.38;b.vx*=.94}
+    if(b.x<b.r){b.x=b.r;b.vx*=-.5} if(b.x>pitW-b.r){b.x=pitW-b.r;b.vx*=-.5}
+  }
+  for(var it=0;it<4;it++)for(var a=0;a<bubbles.length;a++)for(var c=a+1;c<bubbles.length;c++){var A=bubbles[a],B=bubbles[c];
+    var dx2=B.x-A.x,dy2=B.y-A.y,dist=Math.sqrt(dx2*dx2+dy2*dy2)||.01,min=A.r+B.r;
+    if(dist<min){var nx=dx2/dist,ny=dy2/dist,ov=(min-dist);var ad=drag&&drag.b===A,bd=drag&&drag.b===B;
+      var wa=ad?0:bd?1:.5, wb=bd?0:ad?1:.5;
+      A.x-=nx*ov*wa;A.y-=ny*ov*wa;B.x+=nx*ov*wb;B.y+=ny*ov*wb;
+      var rv=(B.vx-A.vx)*nx+(B.vy-A.vy)*ny;if(rv<0){var j=-(1.35)*rv/2;if(!ad){A.vx-=j*nx;A.vy-=j*ny}if(!bd){B.vx+=j*nx;B.vy+=j*ny}}
+    }}
+  bubbles.forEach(function(b){if(b.y>pitH-b.r)b.y=pitH-b.r;b.a+=b.vx/b.r*.5;b.a*=.98;b.el.style.transform='translate('+(b.x-b.r)+'px,'+(b.y-b.r)+'px) rotate('+clamp(b.a,-.5,.5)+'rad)'});
+}
+watch(pit,function(v){pitVis=v;if(v&&!pitOn){pitOn=true;spawnBubbles()}},{threshold:.25});
+$('#again').addEventListener('click',function(e){e.stopPropagation();spawnBubbles()});
+window.addEventListener('resize',function(){if(pitOn)pitSize()});
+
+/* ---------- path line ---------- */
+function pathTick(){var el=$('#pathEl'),r=el.getBoundingClientRect();
+  if(mob){var pm=clamp((innerHeight*.75-r.top)/r.height,0,1);$('#pathFill').style.height=(pm*100)+'%';
+    $$('.step',el).forEach(function(s){var sr=s.getBoundingClientRect();s.classList.toggle('lit',sr.top<innerHeight*.72)});return}
+  var p=clamp((innerHeight*.8-r.top)/(innerHeight*.6),0,1);$('#pathFill').style.width=(p*100)+'%';
+  $$('.step',el).forEach(function(s,i,arr){s.classList.toggle('lit',p>=(i/(arr.length))+.02)})}
+
+/* ---------- discussion ---------- */
+var experts=[{id:'ops',l:'Руководитель производства',k:'or',a:-90},{id:'eng',l:'Инженер с опытом на линии',k:'or',a:-18},{id:'ai',l:'Исследователь ИИ',k:'ink',a:54},{id:'eco',l:'Экономист',k:'or',a:126},{id:'stu',l:'Студентка 1 курса',k:'ring',a:198}];
+var dStages=['Проблема без ответа. Одной оптики мало.','Один взгляд видит только часть проблемы.','Два взгляда спорят — появляется вопрос.','Возникают противоречия. Это хорошо.','Почти. Не хватает одного взгляда.','Гипотеза готова к эксперименту.'];
+var picked={}, box=$('#dStageBox'), lines=$('#dLines');
+experts.forEach(function(x){
+  var b=document.createElement('button');b.type='button';b.className='chip'+(x.k==='or'?' or':'');b.textContent='+ '+x.l;b.setAttribute('data-cursor','Добавь');b.setAttribute('aria-pressed','false');
+  b.addEventListener('click',function(){picked[x.id]=!picked[x.id];b.classList.toggle('on',picked[x.id]);b.textContent=(picked[x.id]?'✓ ':'+ ')+x.l;b.setAttribute('aria-pressed',picked[x.id]?'true':'false');updDisc()});
+  $('#chips').appendChild(b);
+  var n=document.createElement('div');n.className='node';n.id='n_'+x.id;n.innerHTML='<i class="'+(x.k==='ring'?'ring':x.k==='ink'?'ink':'')+'"></i><span></span>';n.querySelector('span').textContent=x.l;box.appendChild(n);
+});
+function placeNodes(){var r=box.getBoundingClientRect(),R=Math.min(r.width,r.height)*.36;experts.forEach(function(x){var t=x.a*Math.PI/180,n=$('#n_'+x.id);n.style.left=(r.width/2+Math.cos(t)*R)+'px';n.style.top=(r.height/2+Math.sin(t)*R)+'px';n._x=r.width/2+Math.cos(t)*R;n._y=r.height/2+Math.sin(t)*R})}
+function updDisc(){
+  var n=experts.filter(function(x){return picked[x.id]}).length;
+  $('#dN').textContent=n;$('#dMeter').style.width=(n*20)+'%';$('#dStage').textContent=dStages[n];
+  $('#dCore').style.transform='scale('+(1+n*.75)+')';$('#dCore').style.background=n===5?OR:NIGHT;
+  $('#dRing').classList.toggle('go',n===5);$('#hyp').classList.toggle('show',n===5);
+  placeNodes(); var r=box.getBoundingClientRect(); var html='';
+  experts.forEach(function(x){var el=$('#n_'+x.id);el.classList.toggle('on',!!picked[x.id]);if(picked[x.id])html+='<line x1="'+el._x+'" y1="'+(el._y)+'" x2="'+(r.width/2)+'" y2="'+(r.height/2)+'" stroke="'+(x.k==='or'?OR:NIGHT)+'" stroke-width="1.2" stroke-dasharray="4 5" opacity=".6"><animate attributeName="stroke-dashoffset" from="0" to="-18" dur="1s" repeatCount="indefinite"/></line>'});
+  lines.setAttribute('viewBox','0 0 '+r.width+' '+r.height);lines.innerHTML=html;
+}
+$('#dReset').addEventListener('click',function(){picked={};$$('#chips .chip').forEach(function(b,i){b.classList.remove('on');b.textContent='+ '+experts[i].l;b.setAttribute('aria-pressed','false')});updDisc()});
+window.addEventListener('resize',updDisc); updDisc();
+
+/* ---------- photo parallax ---------- */
+var pars=$$('[data-par]');
+function parTick(){if(mob)return;pars.forEach(function(im){var r=im.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;var p=(r.top+r.height/2-innerHeight/2)/innerHeight;im.style.transform='translateY('+(-8+p*-10)+'%)'})}
+
+/* ---------- campus time ---------- */
+var tDefs={morning:{t:'Фундаментальная подготовка и тихие зоны для самостоятельной работы.',f:'brightness(1.3) saturate(.45)',n:1,l:'утро'},day:{t:'Малые дискуссионные группы: студенты, исследователи, практики.',f:'brightness(1.12) saturate(.8)',n:3,l:'день'},evening:{t:'Дискуссии с предпринимателями и защиты результатов треков.',f:'none',n:5,l:'вечер'}};
+function setTime(k){var d=tDefs[k];$('#campusImg').style.filter=d.f;$('#tText').textContent=d.t;$('#tNow').textContent=d.l;
+  $$('.tbtns button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-t')===k)});
+  $$('.campus .cm').forEach(function(m,i){setTimeout(function(){m.classList.toggle('on',i<d.n)},i*120)})}
+$$('.tbtns button').forEach(function(b){b.addEventListener('click',function(){setTime(b.getAttribute('data-t'))})});
+var hr=new Date().getHours(); setTime(hr>=6&&hr<12?'morning':hr>=12&&hr<18?'day':'evening');
+$('#campusBox').addEventListener('pointermove',function(e){var r=this.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;$('#campusImg').style.transform='scale(1.08) translate('+(-x*18)+'px,'+(-y*12)+'px)'});
+$('#campusBox').addEventListener('pointerleave',function(){$('#campusImg').style.transform=''});
+
+/* ---------- grant: your particle ---------- */
+watch($('.gstage'),function(v){if(v)$('#me').classList.add('home')},{threshold:.5});
+
+/* ---------- mobile accordions ---------- */
+$$('.more').forEach(function(b){b.setAttribute('aria-expanded','false');b.addEventListener('click',function(){var p=b.closest('.prog');var o=p.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false')})});
+$$('.adv h3').forEach(function(h){h.addEventListener('click',function(){if(!mob)return;h.parentNode.classList.toggle('open')})});
+
+/* ---------- main loop ---------- */
+function loop(t){
+  cursorTick(t); heroTick(); hero.draw(t); erasDraw(t); grant.draw(t); pitTick(); marqTick(); pathTick(); parTick(); navTick();
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+runIntro();
+})();
+</script>
+</body>
+</html>
